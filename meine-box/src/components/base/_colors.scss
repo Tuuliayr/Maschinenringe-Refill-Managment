@@ -1,0 +1,47 @@
+// Here are the color definitions
+$color-black: black; 
+$color-white: white;
+$color-green: green;
+$color-light-green: lightgreen;
+
+// Use these colors via clr() function rather than colors directly.
+// This way we can change colors easily and fast.
+// If some component/element needs a lot of colors please create their own map.
+// Note: Remeber to add the new mab to root and create it's own each loop.
+
+$defaultColors: (
+  text: $color-black,
+  text-inverse: $color-white,
+  primary: $color-green,
+  primary-secondary: $color-light-green,
+);
+
+// The function that you can access the colors anywhere easily:
+// for example: background-color: clr(primary);
+
+// The colorChoice called in the function is prefixed with
+// `var(--c-` to call the custom property for that color.
+// for example: color: clr(primary); will return color: var(--c-primary);
+// Note: (The `--c-` is added via the `@each` loops below)
+@function clr($colorChoice) {
+  @return var(--c-#{$colorChoice});
+}
+
+// Create CSS custom properties
+// This loop creates a css custom property for each variable in a map.
+// for example: text: $color-black, -> --c-text: $color-black;
+//
+// The first `@each` loop will create a custom property for each item in the
+// $defaultColors map. So put all of your default colors there.
+:root {
+  // Create custom properties for default colors
+  @each $name, $color in $defaultColors {
+    --c-#{$name}: #{$color};
+  }
+}
+
+
+
+
+
+
