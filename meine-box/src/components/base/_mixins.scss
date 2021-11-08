@@ -1,0 +1,27 @@
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-reset() {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/**
+ * Mixin for converting properties values from pixels to rems
+ * Example:
+ * @include to-rem('width', 200);
+ *
+ * rendered as:
+ * width: 12.5rem;
+ */
+ @mixin to-rem($property, $px-value) {
+  $baseline_px: 16;
+  $baseline_rem: ($baseline_px / 1rem);
+
+  #{$property}: ($px_value / $baseline_rem);
+}
