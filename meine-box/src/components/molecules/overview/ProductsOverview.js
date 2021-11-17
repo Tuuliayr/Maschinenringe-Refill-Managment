@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductCard from "../../base/ProductCards.js";
+import Button from "../../base/buttons/ButtonBase";
 
 const ProductsOverview = () => {
   const data = [
@@ -15,13 +16,18 @@ const ProductsOverview = () => {
 
   return (
     <div>
-      {products.map((product) => (
-        <ProductCard
-          name={product.value}
-          inStock={product.inStock}
-          unit={product.unit}
-        />
-      ))}
+      <div>
+        <Button>Restock</Button>
+      </div>
+      <div>
+        {products.map((product) => (
+          <ProductCard
+            name={product.value}
+            inStock={product.inStock}
+            unit={product.unit}
+          />
+        ))}
+      </div>
     </div>
   );
 };
