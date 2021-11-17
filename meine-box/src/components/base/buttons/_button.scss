@@ -1,0 +1,23 @@
+@import "../variables";
+
+.button_primary {
+  background: clr(primary);
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: $radius-primary;
+  padding: 1.25rem 1.125rem;
+
+  color: #f6f5f5;
+  cursor: pointer;
+  font-family: $font-body;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0.05rem;
+  //text-transform: uppercase;
+}
+
+.button_primary:hover {
+  transform: scale(1.1);
+}
