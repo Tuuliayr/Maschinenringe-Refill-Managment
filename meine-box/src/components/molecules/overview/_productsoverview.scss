@@ -25,6 +25,8 @@
 
 .product_name {
   grid-column: 1;
+  font-family: $font-heading;
+  font-weight: bold;
 }
 
 .stock_info {
@@ -36,6 +38,7 @@
   border-radius: $radius-primary;
   border: 1px solid $color-black;
   background-color: clr(stock-full);
+  font-family: $font-body;
 }
 
 .units_left {
@@ -47,4 +50,5 @@
   text-align: center;
   border-radius: $radius-primary;
   background-color: $color-white;
+  font-family: $font-body;
 }
