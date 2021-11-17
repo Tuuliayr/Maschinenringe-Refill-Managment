@@ -4,8 +4,8 @@
 // Base
 @import "components/base/_colors";
 @import "components/base/_variables";
-@import "components/base/_button";
-@import "components/base/_addbutton";
+@import "components/base/buttons/_button";
+@import "components/base/buttons/_addbutton";
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/_breakpoint";
