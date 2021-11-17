@@ -14,6 +14,14 @@
     "categories": {
       "auth": {
         "MeineBox": {}
+      },
+      "api": {
+        "meinebox": {
+          "rdsRegion": "eu-central-1",
+          "rdsClusterIdentifier": "arn:aws:rds:eu-central-1:154954289877:cluster:maschinenringe-db",
+          "rdsSecretStoreArn": "arn:aws:secretsmanager:eu-central-1:154954289877:secret:rds-db-credentials/cluster-IR3OO7M7KMNFKNPOSFGCWBKVS4/admin-pFtPG0",
+          "rdsDatabaseName": "meineboxdb"
+        }
       }
     }
   }

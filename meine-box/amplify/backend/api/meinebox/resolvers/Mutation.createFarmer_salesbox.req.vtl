@@ -1,0 +1,12 @@
+#set( $cols = [] )
+#set( $vals = [] )
+#foreach( $entry in $ctx.args.createFarmer_salesboxInput.keySet() )
+  #set( $discard = $cols.add($entry) )
+  #set( $discard = $vals.add("'$ctx.args.createFarmer_salesboxInput[$entry]'") )
+#end
+#set( $valStr = $vals.toString().replace("[","(").replace("]",")") )
+#set( $colStr = $cols.toString().replace("[","(").replace("]",")") )
+{
+  "version": "2018-05-29",
+  "statements":   ["INSERT INTO Farmer_salesbox $colStr VALUES $valStr", "SELECT * FROM Farmer_salesbox WHERE salesbox_id=$ctx.args.createFarmer_salesboxInput.salesbox_id"]
+}
