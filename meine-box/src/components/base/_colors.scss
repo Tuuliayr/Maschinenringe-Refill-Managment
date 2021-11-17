@@ -1,8 +1,11 @@
 // Here are the color definitions
-$color-black: black; 
+$color-black: black;
 $color-white: white;
-$color-green: #65B22E;
+$color-green: #65b22e;
 $color-light-green: lightgreen;
+$color-yellow-green: yellowgreen;
+$color-yellow: yellow;
+$color-red: #fa4359;
 
 // Use these colors via clr() function rather than colors directly.
 // This way we can change colors easily and fast.
@@ -14,6 +17,10 @@ $defaultColors: (
   text-inverse: $color-white,
   primary: $color-green,
   primary-secondary: $color-light-green,
+  button-primary: $color-white,
+  stock-full: $color-yellow-green,
+  stock-low: $color-yellow,
+  stock-empty: $color-red,
 );
 
 // The function that you can access the colors anywhere easily:
@@ -39,9 +46,3 @@ $defaultColors: (
     --c-#{$name}: #{$color};
   }
 }
-
-
-
-
-
-
