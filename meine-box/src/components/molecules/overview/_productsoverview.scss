@@ -2,9 +2,9 @@
   //   height: ;
   display: grid;
   grid-gap: $space-s;
-  grid-template-columns: repeat(5, [col] 8rem);
+  grid-template-columns: repeat(3, [col] 8rem);
   align-items: center;
-  // justify-items: center;
+  justify-content: center;
   padding: $space-xs;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .stock_info {
-  width: 7rem;
+  width: 6.5rem;
   // height: 2rem;
   grid-column: 2;
   padding: $space-xs;
@@ -39,8 +39,8 @@
 }
 
 .units_left {
-  grid-column: col 5 / span;
-  width: 5rem;
+  grid-column: col 3 / span;
+  width: 4rem;
   // height: 2rem;
   // margin: auto;
   padding: 1.1rem;
