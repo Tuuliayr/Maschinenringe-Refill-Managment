@@ -16,8 +16,17 @@ Amplify.configure(awsconfig);
 function App() {
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
+  //const [farmer, setFarmer] = React.useState();
+
+  async function getFarmer() {
+    const farmer = await API.graphql(
+      graphqlOperation(queries.getFarmer, { id: 1 })
+    );
+    console.log(farmer);
+  }
 
   React.useEffect(() => {
+    getFarmer();
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
@@ -40,6 +49,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        <p>{}</p>
+      </div>
       <ProductsOverview />
     </div>
   ) : (
