@@ -13,15 +13,16 @@ import * as queries from "./graphql/queries";
 function App() {
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
-  //const [farmer, setFarmer] = React.useState();
+  const [farmers, setFarmers] = React.useState([]);
 
-  async function getFarmer() {
-    const farmers = await API.graphql(graphqlOperation(queries.listFarmers));
-    console.log(farmers);
+  async function getFarmers() {
+    const farmerData = await API.graphql(graphqlOperation(queries.listFarmers));
+    console.log(farmerData);
+    setFarmers(farmerData.data.listFarmers);
   }
 
   React.useEffect(() => {
-    getFarmer();
+    getFarmers();
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
@@ -45,7 +46,17 @@ function App() {
         </a>
       </header>
       <div>
-        <p>{}</p>
+        {farmers.map((farmer) => (
+          <div>
+            <p>{farmer.farm_name}</p>
+            <p>
+              {farmer.first_name} {farmer.last_name}
+            </p>
+            <p>
+              Address: {farmer.street_name}, {farmer.zip_code} {farmer.city}
+            </p>
+          </div>
+        ))}
       </div>
       <ProductsOverview />
     </div>
