@@ -1,0 +1,164 @@
+input CreateFarmerInput {
+  id: Int!
+  farm_name: String!
+  street_name: String!
+  zip_code: String!
+  city: String!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+type farmer {
+  id: Int!
+  farm_name: String!
+  street_name: String!
+  zip_code: String!
+  city: String!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+input UpdateFarmerInput {
+  id: Int!
+  farm_name: String
+  street_name: String
+  zip_code: String
+  city: String
+  first_name: String
+  last_name: String
+  email: String
+}
+
+input CreateFarmer_salesboxInput {
+  farmer_id: Int!
+  salesbox_id: Int!
+}
+
+type farmer_salesbox {
+  farmer_id: Int!
+  salesbox_id: Int!
+}
+
+input UpdateFarmer_salesboxInput {
+  farmer_id: Int!
+  salesbox_id: Int!
+}
+
+input CreateLoginInput {
+  farmer_id: Int!
+  password: String
+}
+
+type login {
+  farmer_id: Int!
+  password: String
+}
+
+input UpdateLoginInput {
+  farmer_id: Int!
+  password: String
+}
+
+input CreateProductInput {
+  id: Int!
+  name: String!
+  price_per_unit: Float!
+  unit_value: String
+  stock_quantity: Float
+  low_stock_definition: Float
+  expiration_date: AWSDateTime
+  farmer_id: Int
+  salesbox_id: Int
+}
+
+type product {
+  id: Int!
+  name: String!
+  price_per_unit: Float!
+  unit_value: String
+  stock_quantity: Float
+  low_stock_definition: Float
+  expiration_date: AWSDateTime
+  farmer_id: Int
+  salesbox_id: Int
+}
+
+input UpdateProductInput {
+  id: Int!
+  name: String
+  price_per_unit: Float
+  unit_value: String
+  stock_quantity: Float
+  low_stock_definition: Float
+  expiration_date: AWSDateTime
+  farmer_id: Int
+  salesbox_id: Int
+}
+
+input CreateSalesboxInput {
+  id: Int!
+  street_address: String!
+  zip_code: String!
+  city: String!
+}
+
+type salesbox {
+  id: Int!
+  street_address: String!
+  zip_code: String!
+  city: String!
+}
+
+input UpdateSalesboxInput {
+  id: Int!
+  street_address: String
+  zip_code: String
+  city: String
+}
+
+type Mutation {
+  deleteFarmer(id: Int!): farmer
+  createFarmer(createFarmerInput: CreateFarmerInput!): farmer
+  updateFarmer(updateFarmerInput: UpdateFarmerInput!): farmer
+  deleteFarmer_salesbox(salesbox_id: Int!): farmer_salesbox
+  createFarmer_salesbox(createFarmer_salesboxInput: CreateFarmer_salesboxInput!): farmer_salesbox
+  updateFarmer_salesbox(updateFarmer_salesboxInput: UpdateFarmer_salesboxInput!): farmer_salesbox
+  deleteLogin(farmer_id: Int!): login
+  createLogin(createLoginInput: CreateLoginInput!): login
+  updateLogin(updateLoginInput: UpdateLoginInput!): login
+  deleteProduct(id: Int!): product
+  createProduct(createProductInput: CreateProductInput!): product
+  updateProduct(updateProductInput: UpdateProductInput!): product
+  deleteSalesbox(id: Int!): salesbox
+  createSalesbox(createSalesboxInput: CreateSalesboxInput!): salesbox
+  updateSalesbox(updateSalesboxInput: UpdateSalesboxInput!): salesbox
+}
+
+type Query {
+  getFarmer(id: Int!): farmer
+  listFarmers: [farmer]
+  getFarmer_salesbox(salesbox_id: Int!): farmer_salesbox
+  listFarmer_salesboxs: [farmer_salesbox]
+  getLogin(farmer_id: Int!): login
+  listLogins: [login]
+  getProduct(id: Int!): product
+  listProducts: [product]
+  getSalesbox(id: Int!): salesbox
+  listSalesboxs: [salesbox]
+}
+
+type Subscription {
+  onCreateFarmer: farmer @aws_subscribe(mutations: ["createFarmer"])
+  onCreateFarmer_salesbox: farmer_salesbox @aws_subscribe(mutations: ["createFarmer_salesbox"])
+  onCreateLogin: login @aws_subscribe(mutations: ["createLogin"])
+  onCreateProduct: product @aws_subscribe(mutations: ["createProduct"])
+  onCreateSalesbox: salesbox @aws_subscribe(mutations: ["createSalesbox"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
