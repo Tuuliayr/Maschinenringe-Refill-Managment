@@ -7,11 +7,8 @@ import ProductsOverview from "./components/molecules/overview/ProductsOverview";
 import logo from "./logo.svg";
 import "./Styles.scss";
 
-import Amplify, { API, graphqlOperation } from "aws-amplify";
-import awsconfig from "./aws-exports";
+import { API, graphqlOperation } from "aws-amplify";
 import * as queries from "./graphql/queries";
-
-Amplify.configure(awsconfig);
 
 function App() {
   const [authState, setAuthState] = React.useState();
@@ -19,10 +16,8 @@ function App() {
   //const [farmer, setFarmer] = React.useState();
 
   async function getFarmer() {
-    const farmer = await API.graphql(
-      graphqlOperation(queries.getFarmer, { id: 1 })
-    );
-    console.log(farmer);
+    const farmers = await API.graphql(graphqlOperation(queries.listFarmers));
+    console.log(farmers);
   }
 
   React.useEffect(() => {
