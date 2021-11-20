@@ -4,11 +4,10 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
 import ProductsOverview from "./components/molecules/overview/ProductsOverview";
-import logo from "./logo.svg";
 import "./Styles.scss";
 
-import { API, graphqlOperation } from "aws-amplify";
-import * as queries from "./graphql/queries";
+// Import for getting data from database
+import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
 
 function App() {
   const [authState, setAuthState] = React.useState();
@@ -16,9 +15,9 @@ function App() {
   const [farmers, setFarmers] = React.useState([]);
 
   async function getFarmers() {
-    const farmerData = await API.graphql(graphqlOperation(queries.listFarmers));
+    const farmerData = await dbData.getAllFarmers();
     console.log(farmerData);
-    setFarmers(farmerData.data.listFarmers);
+    setFarmers(farmerData);
   }
 
   React.useEffect(() => {
@@ -29,22 +28,8 @@ function App() {
     });
   }, []);
 
-  return authState === AuthState.SignedIn && user ? (
-    <div className="App">
-      <div>Hello, {user.username}</div>
-      <AmplifySignOut />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to Meine Box. This is our test branch!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const showFarmers = () => {
+    return (
       <div>
         {farmers.map((farmer) => (
           <div>
@@ -58,6 +43,17 @@ function App() {
           </div>
         ))}
       </div>
+    );
+  };
+
+  return authState === AuthState.SignedIn && user ? (
+    <div className="App">
+      <div>Hello, {user.username}</div>
+      <AmplifySignOut />
+      <header className="App-header">
+        <p>Welcome to Meine Box. This is our test branch!</p>
+      </header>
+      <div>{showFarmers()}</div>
       <ProductsOverview />
     </div>
   ) : (
