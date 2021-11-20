@@ -118,3 +118,38 @@ export const addNewProduct = async (
   );
   return newProduct.data.createProduct;
 };
+
+export const updateProduct = async (
+  id,
+  name,
+  price_per_unit,
+  unit_value,
+  stock_quantity,
+  low_stock_definition,
+  expiration_date,
+  farmer_id,
+  salesbox_id
+) => {
+  const updated = {
+    id,
+    name,
+    price_per_unit,
+    unit_value,
+    stock_quantity,
+    low_stock_definition,
+    expiration_date,
+    farmer_id,
+    salesbox_id,
+  };
+  const updatedFarm = await API.graphql(
+    graphqlOperation(mutations.updateProduct, { updateProductInput: updated })
+  );
+  return updatedFarm.data.updateProduct;
+};
+
+export const deleteProduct = async (productId) => {
+  const deletedProduct = await API.graphql(
+    graphqlOperation(mutations.deleteProduct, { id: productId })
+  );
+  return deletedProduct.data.deleteProduct;
+};

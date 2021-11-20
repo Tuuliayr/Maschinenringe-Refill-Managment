@@ -63,33 +63,35 @@ function App() {
     /*
     // Adding new product
     const testProduct = await dbData.addNewProduct(
-      "Strawberry",
-      7.59,
+      "Testproduct4",
+      1.5,
       "kg",
-      2,
-      2,
-      "2021-11-22 00:00:00",
-      8,
+      40,
+      3,
+      "2021-12-22 00:00:00",
+      1,
       1
     );
-    console.log(testProduct);
-      */
-    // Deleting farmer
-    //const delFarm = await dbData.deleteFarmer(5);
-    //console.log(delFarm);
+    //console.log(testProduct);
+    */
+    // Deleting product
+    //const delProduct = await dbData.deleteProduct(5);
+    //console.log(delProduct);
     /*
-    // Updating farmer
-    const updateFarmer = await dbData.updateFarmer(
+    // Updating product
+    const updateProduct = await dbData.updateProduct(
       6,
-      "Changed Farm name",
-      "Maria",
-      "Doe",
-      "Test street 5",
-      "21504",
-      "Hamburg",
-      "maria@farm.com"
+      "Changed testproduct2 name",
+      3.9,
+      "kg",
+      20,
+      3,
+      "2021-12-22 00:00:00",
+      3,
+      1
     );
-    console.log(updateFarmer);*/
+    console.log(updateProduct);
+    */
   }
 
   React.useEffect(() => {
