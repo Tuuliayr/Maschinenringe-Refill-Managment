@@ -61,7 +61,6 @@ input UpdateLoginInput {
 }
 
 input CreateProductInput {
-  id: Int!
   name: String!
   price_per_unit: Float!
   unit_value: String

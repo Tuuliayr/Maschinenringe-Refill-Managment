@@ -51,22 +51,29 @@ function App() {
   }
 
   async function getProducts() {
+    // Fetching all product
     const productData = await dbData.getAllProducts();
     console.log(productData);
     setProducts(productData);
-    //const singleFarmer = await dbData.getOneFarmer(1);
     /*
-    // Adding new farmer
-    const testFarmer = await dbData.addNewFarmer(
-      "TestFarm",
-      "George",
-      "Reginald",
-      "Testing alley 4",
-      "19400",
-      "Hamburg",
-      "george@testfarm.com"
-    );
+    // Fetching one product with id
+    const singleProduct = await dbData.getOneProduct(1);
+    console.log(singleProduct);
     */
+    /*
+    // Adding new product
+    const testProduct = await dbData.addNewProduct(
+      "Strawberry",
+      7.59,
+      "kg",
+      2,
+      2,
+      "2021-11-22 00:00:00",
+      8,
+      1
+    );
+    console.log(testProduct);
+      */
     // Deleting farmer
     //const delFarm = await dbData.deleteFarmer(5);
     //console.log(delFarm);
@@ -127,8 +134,8 @@ function App() {
               {product.price_per_unit} € / {product.unit_value}
             </p>
             <p>
-              Stock: {product.stock_quantity} {product.unit_value}
-              Farmer id: {product.farmer_id}, salesbox id: {product.salesbox_id}
+              Stock: {product.stock_quantity} {product.unit_value}, Farmer id:{" "}
+              {product.farmer_id}, salesbox id: {product.salesbox_id}
             </p>
             <p>********************</p>
           </div>

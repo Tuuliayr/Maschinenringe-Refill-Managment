@@ -85,3 +85,36 @@ export const getAllProducts = async () => {
   const productData = await API.graphql(graphqlOperation(queries.listProducts));
   return productData.data.listProducts;
 };
+
+export const getOneProduct = async (productId) => {
+  const productData = await API.graphql(
+    graphqlOperation(queries.getProduct, { id: productId })
+  );
+  return productData.data.getProduct;
+};
+
+export const addNewProduct = async (
+  name,
+  price_per_unit,
+  unit_value,
+  stock_quantity,
+  low_stock_definition,
+  expiration_date,
+  farmer_id,
+  salesbox_id
+) => {
+  const data = {
+    name,
+    price_per_unit,
+    unit_value,
+    stock_quantity,
+    low_stock_definition,
+    expiration_date,
+    farmer_id,
+    salesbox_id,
+  };
+  const newProduct = await API.graphql(
+    graphqlOperation(mutations.createProduct, { createProductInput: data })
+  );
+  return newProduct.data.createProduct;
+};
