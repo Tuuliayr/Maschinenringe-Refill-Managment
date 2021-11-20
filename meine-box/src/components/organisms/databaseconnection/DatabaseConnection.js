@@ -48,6 +48,32 @@ export const addNewFarmer = async (
   return newFarm.data.createFarmer;
 };
 
+export const updateFarmer = async (
+  id,
+  farmName,
+  firstName,
+  lastName,
+  streetAddress,
+  zip,
+  city,
+  email
+) => {
+  const updated = {
+    id: id,
+    farm_name: farmName,
+    first_name: firstName,
+    last_name: lastName,
+    street_name: streetAddress,
+    zip_code: zip,
+    city: city,
+    email: email,
+  };
+  const updatedFarm = await API.graphql(
+    graphqlOperation(mutations.updateFarmer, { updateFarmerInput: updated })
+  );
+  return updatedFarm.data.updateFarmer;
+};
+
 export const deleteFarmer = async (farmerId) => {
   const deletedFarm = await API.graphql(
     graphqlOperation(mutations.deleteFarmer, { id: farmerId })

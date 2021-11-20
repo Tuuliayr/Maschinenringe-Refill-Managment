@@ -6,7 +6,7 @@ import Authentication from "./components/organisms/authentication/Authentication
 import ProductsOverview from "./components/molecules/overview/ProductsOverview";
 import "./Styles.scss";
 
-// Import for getting data from database
+// Import for getting/modifying data from database
 import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
 
 function App() {
@@ -19,7 +19,9 @@ function App() {
     //console.log(farmerData);
     setFarmers(farmerData);
     //const singleFarmer = await dbData.getOneFarmer(1);
-    /*const testFarmer = await dbData.addNewFarmer(
+    /*
+    // Adding new farmer
+    const testFarmer = await dbData.addNewFarmer(
       "TestFarm",
       "George",
       "Reginald",
@@ -29,8 +31,22 @@ function App() {
       "george@testfarm.com"
     );
     */
+    // Deleting farmer
     //const delFarm = await dbData.deleteFarmer(5);
     //console.log(delFarm);
+    /*
+    // Updating farmer
+    const updateFarmer = await dbData.updateFarmer(
+      6,
+      "Changed Farm name",
+      "Maria",
+      "Doe",
+      "Test street 5",
+      "21504",
+      "Hamburg",
+      "maria@farm.com"
+    );
+    console.log(updateFarmer);*/
   }
 
   React.useEffect(() => {
