@@ -61,7 +61,7 @@ function App() {
     return (
       <div>
         {farmers.map((farmer) => (
-          <div>
+          <div key={farmer.id}>
             <p>
               ID: {farmer.id}, {farmer.farm_name}
             </p>
