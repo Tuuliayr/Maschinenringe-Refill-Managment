@@ -8,5 +8,5 @@
 #set( $colStr = $cols.toString().replace("[","(").replace("]",")") )
 {
   "version": "2018-05-29",
-  "statements":   ["INSERT INTO Login $colStr VALUES $valStr", "SELECT * FROM Login WHERE farmer_id=$ctx.args.createLoginInput.farmer_id"]
+  "statements":   ["INSERT INTO login $colStr VALUES $valStr", "SELECT * FROM login WHERE farmer_id=$ctx.args.createLoginInput.farmer_id"]
 }

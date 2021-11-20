@@ -1,5 +1,4 @@
 input CreateFarmerInput {
-  id: Int!
   farm_name: String!
   street_name: String!
   zip_code: String!
@@ -123,8 +122,12 @@ type Mutation {
   createFarmer(createFarmerInput: CreateFarmerInput!): farmer
   updateFarmer(updateFarmerInput: UpdateFarmerInput!): farmer
   deleteFarmer_salesbox(salesbox_id: Int!): farmer_salesbox
-  createFarmer_salesbox(createFarmer_salesboxInput: CreateFarmer_salesboxInput!): farmer_salesbox
-  updateFarmer_salesbox(updateFarmer_salesboxInput: UpdateFarmer_salesboxInput!): farmer_salesbox
+  createFarmer_salesbox(
+    createFarmer_salesboxInput: CreateFarmer_salesboxInput!
+  ): farmer_salesbox
+  updateFarmer_salesbox(
+    updateFarmer_salesboxInput: UpdateFarmer_salesboxInput!
+  ): farmer_salesbox
   deleteLogin(farmer_id: Int!): login
   createLogin(createLoginInput: CreateLoginInput!): login
   updateLogin(updateLoginInput: UpdateLoginInput!): login
@@ -151,7 +154,8 @@ type Query {
 
 type Subscription {
   onCreateFarmer: farmer @aws_subscribe(mutations: ["createFarmer"])
-  onCreateFarmer_salesbox: farmer_salesbox @aws_subscribe(mutations: ["createFarmer_salesbox"])
+  onCreateFarmer_salesbox: farmer_salesbox
+    @aws_subscribe(mutations: ["createFarmer_salesbox"])
   onCreateLogin: login @aws_subscribe(mutations: ["createLogin"])
   onCreateProduct: product @aws_subscribe(mutations: ["createProduct"])
   onCreateSalesbox: salesbox @aws_subscribe(mutations: ["createSalesbox"])

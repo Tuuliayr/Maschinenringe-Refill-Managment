@@ -4,54 +4,56 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
 import ProductsOverview from "./components/molecules/overview/ProductsOverview";
-import logo from "./logo.svg";
 import "./Styles.scss";
 
-import Amplify, { API, graphqlOperation } from "aws-amplify";
-import awsconfig from "./aws-exports";
-import * as queries from "./graphql/queries";
-
-Amplify.configure(awsconfig);
+// Import for getting data from database
+import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
 
 function App() {
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
-  //const [farmer, setFarmer] = React.useState();
+  const [farmers, setFarmers] = React.useState([]);
 
-  async function getFarmer() {
-    const farmer = await API.graphql(
-      graphqlOperation(queries.getFarmer, { id: 1 })
-    );
-    console.log(farmer);
+  async function getFarmers() {
+    const farmerData = await dbData.getAllFarmers();
+    console.log(farmerData);
+    setFarmers(farmerData);
   }
 
   React.useEffect(() => {
-    getFarmer();
+    getFarmers();
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
     });
   }, []);
 
+  const showFarmers = () => {
+    return (
+      <div>
+        {farmers.map((farmer) => (
+          <div>
+            <p>{farmer.farm_name}</p>
+            <p>
+              {farmer.first_name} {farmer.last_name}
+            </p>
+            <p>
+              Address: {farmer.street_name}, {farmer.zip_code} {farmer.city}
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return authState === AuthState.SignedIn && user ? (
     <div className="App">
       <div>Hello, {user.username}</div>
       <AmplifySignOut />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>Welcome to Meine Box. This is our test branch!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
-      <div>
-        <p>{}</p>
-      </div>
+      <div>{showFarmers()}</div>
       <ProductsOverview />
     </div>
   ) : (
