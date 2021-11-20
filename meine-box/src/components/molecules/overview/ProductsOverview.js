@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import ProductCard from "../../base/ProductCards.js";
 import Button from "../../base/buttons/ButtonBase";
 
@@ -17,7 +18,9 @@ const ProductsOverview = () => {
   return (
     <div>
       <div>
-        <Button>Restock</Button>
+        <NavLink to="/restock">
+          <Button>Restock</Button>
+        </NavLink>
       </div>
       <div>
         {products.map((product) => (
