@@ -16,10 +16,14 @@ function App() {
   const [products, setProducts] = React.useState([]);
 
   async function getFarmers() {
+    // Get all farmers
     const farmerData = await dbData.getAllFarmers();
     //console.log(farmerData);
     setFarmers(farmerData);
+
+    // Get one farmer with id
     //const singleFarmer = await dbData.getOneFarmer(1);
+
     /*
     // Adding new farmer
     const testFarmer = await dbData.addNewFarmer(
@@ -32,9 +36,11 @@ function App() {
       "george@testfarm.com"
     );
     */
+
     // Deleting farmer
     //const delFarm = await dbData.deleteFarmer(5);
     //console.log(delFarm);
+
     /*
     // Updating farmer
     const updateFarmer = await dbData.updateFarmer(
@@ -51,15 +57,20 @@ function App() {
   }
 
   async function getProducts() {
+    // Fetching all product from farmer with id | UNDER CONSTRUCTION
+    //const productData = await dbData.getProductsByFarmerId(1);
+
     // Fetching all product
     const productData = await dbData.getAllProducts();
     //console.log(productData);
     setProducts(productData);
+
     /*
     // Fetching one product with id
     const singleProduct = await dbData.getOneProduct(1);
     console.log(singleProduct);
     */
+
     /*
     // Adding new product
     const testProduct = await dbData.addNewProduct(
@@ -74,9 +85,11 @@ function App() {
     );
     //console.log(testProduct);
     */
+
     // Deleting product
     //const delProduct = await dbData.deleteProduct(5);
     //console.log(delProduct);
+
     /*
     // Updating product
     const updateProduct = await dbData.updateProduct(
@@ -136,7 +149,7 @@ function App() {
               {product.price_per_unit} € / {product.unit_value}
             </p>
             <p>
-              Stock: {product.stock_quantity} {product.unit_value}, Farmer id:{" "}
+              Stock: {product.stock_quantity} {product.unit_value}, Farmer id:
               {product.farmer_id}, salesbox id: {product.salesbox_id}
             </p>
             <p>********************</p>

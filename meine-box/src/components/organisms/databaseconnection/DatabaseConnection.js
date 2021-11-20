@@ -153,3 +153,17 @@ export const deleteProduct = async (productId) => {
   );
   return deletedProduct.data.deleteProduct;
 };
+
+/* Under construction
+export const getProductsByFarmerId = async (farmerId) => {
+  const filter = {
+    farmer_id: {
+      eq: farmerId,
+    },
+  };
+  const productList = await API.graphql(
+    graphqlOperation(queries.listProducts, { filter: filter })
+  );
+  return productList.data.listProducts;
+};
+*/
