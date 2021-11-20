@@ -3,8 +3,7 @@ import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
-import ProductsOverview from "./components/molecules/overview/ProductsOverview";
-import logo from "./logo.svg";
+import Main from "./components/pages/Main";
 import "./Styles.scss";
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
     <div className="App">
       <div>Hello, {user.username}</div>
       <AmplifySignOut />
-      <ProductsOverview />
+      <Main />
     </div>
   ) : (
     <Authentication />
