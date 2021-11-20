@@ -53,7 +53,7 @@ function App() {
   async function getProducts() {
     // Fetching all product
     const productData = await dbData.getAllProducts();
-    console.log(productData);
+    //console.log(productData);
     setProducts(productData);
     /*
     // Fetching one product with id
