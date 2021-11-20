@@ -13,12 +13,17 @@ function App() {
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
   const [farmers, setFarmers] = React.useState([]);
+  const [products, setProducts] = React.useState([]);
 
   async function getFarmers() {
+    // Get all farmers
     const farmerData = await dbData.getAllFarmers();
     //console.log(farmerData);
     setFarmers(farmerData);
+
+    // Get one farmer with id
     //const singleFarmer = await dbData.getOneFarmer(1);
+
     /*
     // Adding new farmer
     const testFarmer = await dbData.addNewFarmer(
@@ -31,9 +36,11 @@ function App() {
       "george@testfarm.com"
     );
     */
+
     // Deleting farmer
     //const delFarm = await dbData.deleteFarmer(5);
     //console.log(delFarm);
+
     /*
     // Updating farmer
     const updateFarmer = await dbData.updateFarmer(
@@ -49,8 +56,60 @@ function App() {
     console.log(updateFarmer);*/
   }
 
+  async function getProducts() {
+    // Fetching all product from farmer with id | UNDER CONSTRUCTION
+    //const productData = await dbData.getProductsByFarmerId(1);
+
+    // Fetching all product
+    const productData = await dbData.getAllProducts();
+    //console.log(productData);
+    setProducts(productData);
+
+    /*
+    // Fetching one product with id
+    const singleProduct = await dbData.getOneProduct(1);
+    console.log(singleProduct);
+    */
+
+    /*
+    // Adding new product
+    const testProduct = await dbData.addNewProduct(
+      "Testproduct4",
+      1.5,
+      "kg",
+      40,
+      3,
+      "2021-12-22 00:00:00",
+      1,
+      1
+    );
+    //console.log(testProduct);
+    */
+
+    // Deleting product
+    //const delProduct = await dbData.deleteProduct(5);
+    //console.log(delProduct);
+
+    /*
+    // Updating product
+    const updateProduct = await dbData.updateProduct(
+      6,
+      "Changed testproduct2 name",
+      3.9,
+      "kg",
+      20,
+      3,
+      "2021-12-22 00:00:00",
+      3,
+      1
+    );
+    console.log(updateProduct);
+    */
+  }
+
   React.useEffect(() => {
     getFarmers();
+    getProducts();
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
@@ -61,7 +120,7 @@ function App() {
     return (
       <div>
         {farmers.map((farmer) => (
-          <div>
+          <div key={farmer.id}>
             <p>
               ID: {farmer.id}, {farmer.farm_name}
             </p>
@@ -78,12 +137,35 @@ function App() {
     );
   };
 
+  const showProducts = () => {
+    return (
+      <div>
+        {products.map((product) => (
+          <div key={product.id}>
+            <p>
+              ID: {product.id}, {product.name}
+            </p>
+            <p>
+              {product.price_per_unit} € / {product.unit_value}
+            </p>
+            <p>
+              Stock: {product.stock_quantity} {product.unit_value}, Farmer id:
+              {product.farmer_id}, salesbox id: {product.salesbox_id}
+            </p>
+            <p>********************</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return authState === AuthState.SignedIn && user ? (
     <div className="App">
       <div>Hello, {user.username}</div>
       <AmplifySignOut />
       <Main />
       <div>{showFarmers()}</div>
+      <div>{showProducts()}</div>
     </div>
   ) : (
     <Authentication />

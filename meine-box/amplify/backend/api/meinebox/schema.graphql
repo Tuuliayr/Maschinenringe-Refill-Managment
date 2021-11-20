@@ -61,13 +61,12 @@ input UpdateLoginInput {
 }
 
 input CreateProductInput {
-  id: Int!
   name: String!
   price_per_unit: Float!
   unit_value: String
   stock_quantity: Float
   low_stock_definition: Float
-  expiration_date: AWSDateTime
+  expiration_date: String
   farmer_id: Int
   salesbox_id: Int
 }
@@ -79,7 +78,7 @@ type product {
   unit_value: String
   stock_quantity: Float
   low_stock_definition: Float
-  expiration_date: AWSDateTime
+  expiration_date: String
   farmer_id: Int
   salesbox_id: Int
 }
@@ -91,7 +90,7 @@ input UpdateProductInput {
   unit_value: String
   stock_quantity: Float
   low_stock_definition: Float
-  expiration_date: AWSDateTime
+  expiration_date: String
   farmer_id: Int
   salesbox_id: Int
 }
