@@ -80,3 +80,8 @@ export const deleteFarmer = async (farmerId) => {
   );
   return deletedFarm.data.deleteFarmer;
 };
+
+export const getAllProducts = async () => {
+  const productData = await API.graphql(graphqlOperation(queries.listProducts));
+  return productData.data.listProducts;
+};
