@@ -16,8 +16,9 @@ function App() {
 
   async function getFarmers() {
     const farmerData = await dbData.getAllFarmers();
-    console.log(farmerData);
+    //console.log(farmerData);
     setFarmers(farmerData);
+    const singleFarmer = await dbData.getOneFarmer(1);
   }
 
   React.useEffect(() => {
