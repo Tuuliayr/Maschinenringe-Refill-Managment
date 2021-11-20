@@ -47,3 +47,10 @@ export const addNewFarmer = async (
   );
   return newFarm.data.createFarmer;
 };
+
+export const deleteFarmer = async (farmerId) => {
+  const deletedFarm = await API.graphql(
+    graphqlOperation(mutations.deleteFarmer, { id: farmerId })
+  );
+  return deletedFarm.data.deleteFarmer;
+};

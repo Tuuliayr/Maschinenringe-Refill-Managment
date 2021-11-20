@@ -29,6 +29,8 @@ function App() {
       "george@testfarm.com"
     );
     */
+    //const delFarm = await dbData.deleteFarmer(5);
+    //console.log(delFarm);
   }
 
   React.useEffect(() => {
@@ -44,7 +46,9 @@ function App() {
       <div>
         {farmers.map((farmer) => (
           <div>
-            <p>{farmer.farm_name}</p>
+            <p>
+              ID: {farmer.id}, {farmer.farm_name}
+            </p>
             <p>
               {farmer.first_name} {farmer.last_name}
             </p>
