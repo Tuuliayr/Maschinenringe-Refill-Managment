@@ -18,7 +18,17 @@ function App() {
     const farmerData = await dbData.getAllFarmers();
     //console.log(farmerData);
     setFarmers(farmerData);
-    const singleFarmer = await dbData.getOneFarmer(1);
+    //const singleFarmer = await dbData.getOneFarmer(1);
+    /*const testFarmer = await dbData.addNewFarmer(
+      "TestFarm",
+      "George",
+      "Reginald",
+      "Testing alley 4",
+      "19400",
+      "Hamburg",
+      "george@testfarm.com"
+    );
+    */
   }
 
   React.useEffect(() => {
@@ -41,6 +51,7 @@ function App() {
             <p>
               Address: {farmer.street_name}, {farmer.zip_code} {farmer.city}
             </p>
+            <p>********************</p>
           </div>
         ))}
       </div>
