@@ -5,6 +5,7 @@ export const onCreateFarmer = /* GraphQL */ `
   subscription OnCreateFarmer {
     onCreateFarmer {
       id
+      login_id
       farm_name
       street_name
       zip_code

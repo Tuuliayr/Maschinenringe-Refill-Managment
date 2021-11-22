@@ -1,6 +1,5 @@
 import React from "react";
-import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
-import { AmplifySignOut } from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
 import Main from "./components/pages/Main";
@@ -10,8 +9,6 @@ import "./Styles.scss";
 import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
 
 function App() {
-  const [authState, setAuthState] = React.useState();
-  const [user, setUser] = React.useState();
   const [farmers, setFarmers] = React.useState([]);
   const [products, setProducts] = React.useState([]);
 
@@ -57,6 +54,7 @@ function App() {
   }
 
   async function getProducts() {
+   
     // Fetching all product from farmer with id | UNDER CONSTRUCTION
     //const productData = await dbData.getProductsByFarmerId(1);
 
@@ -64,27 +62,25 @@ function App() {
     const productData = await dbData.getAllProducts();
     //console.log(productData);
     setProducts(productData);
-
     /*
     // Fetching one product with id
     const singleProduct = await dbData.getOneProduct(1);
     console.log(singleProduct);
     */
 
-    /*
+
     // Adding new product
     const testProduct = await dbData.addNewProduct(
-      "Testproduct4",
-      1.5,
+      "Tomato",
+      2.49,
       "kg",
-      40,
+      5,
       3,
-      "2021-12-22 00:00:00",
-      1,
-      1
+      "2021-12-02 00:00:00",
+      31,
+      2
     );
     //console.log(testProduct);
-    */
 
     // Deleting product
     //const delProduct = await dbData.deleteProduct(5);
@@ -108,12 +104,11 @@ function App() {
   }
 
   React.useEffect(() => {
+    //console.log(user.attributes.email);
+
     getFarmers();
+    console.log(farmers);
     getProducts();
-    return onAuthUIStateChange((nextAuthState, authData) => {
-      setAuthState(nextAuthState);
-      setUser(authData);
-    });
   }, []);
 
   const showFarmers = () => {
@@ -159,16 +154,18 @@ function App() {
     );
   };
 
-  return authState === AuthState.SignedIn && user ? (
-    <div className="App">
-      <div>Hello, {user.username}</div>
-      <AmplifySignOut />
-      <Main />
-      <div>{showFarmers()}</div>
-      <div>{showProducts()}</div>
-    </div>
-  ) : (
-    <Authentication />
+  return (
+    <Authenticator loginMechanisms={['email']}>
+      {({ signOut, user }) => (
+        <div className="App">
+          <Authentication user={user.username} email={user.attributes.email} farmers={farmers} />
+          <button onClick={signOut}>Sign out</button>
+          <Main />
+          <div>{showFarmers()}</div>
+          <div>{showProducts()}</div>
+        </div>
+      )}
+    </Authenticator>
   );
 }
 

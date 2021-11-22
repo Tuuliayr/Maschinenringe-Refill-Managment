@@ -1,21 +1,23 @@
 input CreateFarmerInput {
-  farm_name: String!
-  street_name: String!
-  zip_code: String!
-  city: String!
-  first_name: String!
-  last_name: String!
+  login_id: String!
+  farm_name: String
+  street_name: String
+  zip_code: String
+  city: String
+  first_name: String
+  last_name: String
   email: String!
 }
 
 type farmer {
   id: Int!
-  farm_name: String!
-  street_name: String!
-  zip_code: String!
-  city: String!
-  first_name: String!
-  last_name: String!
+  login_id: String!
+  farm_name: String
+  street_name: String
+  zip_code: String
+  city: String
+  first_name: String
+  last_name: String
   email: String!
 }
 
