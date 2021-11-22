@@ -3,11 +3,11 @@ import React from 'react';
 // Import for getting/modifying data from database
 import * as dbData from "../databaseconnection/DatabaseConnection";
 
-const Authentication = ({user,email,farmers}) => {
+const Authentication = ({user,email,farmers, onHandleID}) => {
 
   React.useEffect(() => {
     const handleRegistration = async () => {
-      const testFarmer = await dbData.addNewFarmer(
+      await dbData.addNewFarmer(
         user,
         "",
         "",
@@ -19,12 +19,11 @@ const Authentication = ({user,email,farmers}) => {
       );
     }
     if(farmers.some(farmer => farmer.login_id === user)) {
-      console.log("User found");
+      onHandleID(farmers[farmers.findIndex((farmer) => farmer.login_id === user)].id);
     } else if (farmers.length !== 0) {
       handleRegistration();
     }
-
-  }, [farmers]);
+  }, [farmers, email, user, onHandleID]);
 
   return (
     <div className='Authentication'></div>

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ProductCard from "../../base/ProductCards.js";
 import Button from "../../base/buttons/ButtonBase";
+// Import for getting/modifying data from database
+import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
-const ProductsOverview = () => {
+const ProductsOverview = ({farmerId}) => {
   const data = [
     { id: 1, value: "Tomato", inStock: "in stock", unit: "5 kg" },
     { id: 2, value: "Cucumber", inStock: "in stock", unit: "5 kg" },
@@ -15,6 +17,14 @@ const ProductsOverview = () => {
   ];
   const [products, setProducts] = useState(data);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setProducts(await dbData.getAllProducts());
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <div>
       <div>
@@ -25,9 +35,12 @@ const ProductsOverview = () => {
       <div>
         {products.map((product) => (
           <ProductCard
-            name={product.value}
+            key={product.id}
+            name={product.name}
+            stock_quantity={product.stock_quantity}
+            low_stock_definition={product.low_stock_definition}
             inStock={product.inStock}
-            unit={product.unit}
+            unit={product.unit_value}
           />
         ))}
       </div>

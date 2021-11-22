@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
@@ -9,8 +9,9 @@ import "./Styles.scss";
 import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
 
 function App() {
-  const [farmers, setFarmers] = React.useState([]);
-  const [products, setProducts] = React.useState([]);
+  const [farmers, setFarmers] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [id, setId] = useState();
 
   async function getFarmers() {
     // Get all farmers
@@ -105,12 +106,13 @@ function App() {
   }
 
   React.useEffect(() => {
-    //console.log(user.attributes.email);
-
     getFarmers();
-    console.log(farmers);
     getProducts();
   }, []);
+
+  const handleGetId = (index) => {
+    setId(index);
+  }
 
   const showFarmers = () => {
     return (
@@ -159,9 +161,14 @@ function App() {
     <Authenticator loginMechanisms={['email']}>
       {({ signOut, user }) => (
         <div className="App">
-          <Authentication user={user.username} email={user.attributes.email} farmers={farmers} />
+          <Authentication 
+            user={user.username} 
+            email={user.attributes.email} 
+            farmers={farmers}
+            onHandleID={handleGetId}
+          />
           <button onClick={signOut}>Sign out</button>
-          <Main />
+          <Main farmerId={id} />
           <div>{showFarmers()}</div>
           <div>{showProducts()}</div>
         </div>

@@ -6,9 +6,12 @@ const ProductCard = (props) => {
     <div className="overview">
       <div className="product_card">
         <div className="product_name">{props.name}</div>
-        <StockInfo inStock={props.inStock} />
+        <StockInfo 
+          stock_quantity={props.stock_quantity} 
+          low_stock_definition={props.low_stock_definition}
+        />
       </div>
-      <div className="units_left">{props.unit}</div>
+      <div className="units_left">{props.stock_quantity}{props.unit}</div>
     </div>
   );
 };
