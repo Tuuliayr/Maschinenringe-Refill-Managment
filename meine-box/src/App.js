@@ -68,19 +68,20 @@ function App() {
     console.log(singleProduct);
     */
 
-
+    /*
     // Adding new product
     const testProduct = await dbData.addNewProduct(
-      "Tomato",
-      2.49,
+      "Testproduct4",
+      1.5,
       "kg",
-      5,
+      40,
       3,
-      "2021-12-02 00:00:00",
-      31,
-      2
+      "2021-12-22 00:00:00",
+      1,
+      1
     );
     //console.log(testProduct);
+    */
 
     // Deleting product
     //const delProduct = await dbData.deleteProduct(5);
