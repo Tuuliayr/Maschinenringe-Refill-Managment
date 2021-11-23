@@ -29,7 +29,7 @@ const MyBoxes = ({farmerId}) => {
     setBoxes(boxes);
   }, [products]);
 
-  // separate product by salesbox id
+  // separate products by salesbox id
   useEffect(() => {
     const productsInBoxes = [];
     boxes.forEach(box => {
@@ -51,7 +51,7 @@ const MyBoxes = ({farmerId}) => {
         <Button>products</Button>
       </NavLink>
       {boxes.map((box, index) => (
-        <SalesboxCard key={box} boxId={box} products={productsInBoxes[index]} />
+        <SalesboxCard key={box} boxId={box} boxProducts={productsInBoxes[index]} />
       ))}
     </div>
   );
