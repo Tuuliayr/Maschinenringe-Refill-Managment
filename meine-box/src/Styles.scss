@@ -17,6 +17,8 @@
 
 // Organisms
 @import "components/organisms/authentication/_authentication";
+@import '@aws-amplify/ui-react/styles.css';
+
 
 // React original styles
 @import "App";

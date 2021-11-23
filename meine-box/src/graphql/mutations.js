@@ -5,6 +5,7 @@ export const deleteFarmer = /* GraphQL */ `
   mutation DeleteFarmer($id: Int!) {
     deleteFarmer(id: $id) {
       id
+      login_id
       farm_name
       street_name
       zip_code
@@ -19,6 +20,7 @@ export const createFarmer = /* GraphQL */ `
   mutation CreateFarmer($createFarmerInput: CreateFarmerInput!) {
     createFarmer(createFarmerInput: $createFarmerInput) {
       id
+      login_id
       farm_name
       street_name
       zip_code
@@ -33,6 +35,7 @@ export const updateFarmer = /* GraphQL */ `
   mutation UpdateFarmer($updateFarmerInput: UpdateFarmerInput!) {
     updateFarmer(updateFarmerInput: $updateFarmerInput) {
       id
+      login_id
       farm_name
       street_name
       zip_code

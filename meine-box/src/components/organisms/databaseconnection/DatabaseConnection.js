@@ -16,6 +16,7 @@ export const getOneFarmer = async (farmerId) => {
 };
 
 export const addNewFarmer = async (
+  login_id,
   farmName,
   firstName,
   lastName,
@@ -25,6 +26,7 @@ export const addNewFarmer = async (
   email
 ) => {
   const data = {
+    login_id: login_id,
     farm_name: farmName,
     first_name: firstName,
     last_name: lastName,

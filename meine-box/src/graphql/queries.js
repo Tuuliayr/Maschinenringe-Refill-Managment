@@ -5,6 +5,7 @@ export const getFarmer = /* GraphQL */ `
   query GetFarmer($id: Int!) {
     getFarmer(id: $id) {
       id
+      login_id
       farm_name
       street_name
       zip_code
@@ -19,6 +20,7 @@ export const listFarmers = /* GraphQL */ `
   query ListFarmers {
     listFarmers {
       id
+      login_id
       farm_name
       street_name
       zip_code
