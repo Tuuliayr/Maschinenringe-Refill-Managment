@@ -16,6 +16,7 @@ function App() {
   async function getFarmers() {
     // Get all farmers
     const farmerData = await dbData.getAllFarmers();
+
     //console.log(farmerData);
     setFarmers(farmerData);
 
@@ -55,12 +56,11 @@ function App() {
   }
 
   async function getProducts() {
-   
     // Fetching all product from farmer with id | UNDER CONSTRUCTION
-    //const productData = await dbData.getProductsByFarmerId(1);
+    const productData = await dbData.getProductsByFarmerId(1);
 
     // Fetching all product
-    const productData = await dbData.getAllProducts();
+    //const productData = await dbData.getAllProducts();
     //console.log(productData);
     setProducts(productData);
     /*
@@ -112,7 +112,7 @@ function App() {
 
   const handleGetId = (index) => {
     setId(index);
-  }
+  };
 
   const showFarmers = () => {
     return (
@@ -135,7 +135,7 @@ function App() {
     );
   };
 
-  const showProducts = () => {
+  const productlist = () => {
     return (
       <div>
         {products.map((product) => (
@@ -157,19 +157,22 @@ function App() {
     );
   };
 
+  const showProducts = () => {
+    return <div></div>;
+  };
+
   return (
-    <Authenticator loginMechanisms={['email']}>
+    <Authenticator loginMechanisms={["email"]}>
       {({ signOut, user }) => (
         <div className="App">
-          <Authentication 
-            user={user.username} 
-            email={user.attributes.email} 
+          <Authentication
+            user={user.username}
+            email={user.attributes.email}
             farmers={farmers}
             onHandleID={handleGetId}
           />
           <button onClick={signOut}>Sign out</button>
           <Main farmerId={id} />
-          <div>{showFarmers()}</div>
           <div>{showProducts()}</div>
         </div>
       )}
