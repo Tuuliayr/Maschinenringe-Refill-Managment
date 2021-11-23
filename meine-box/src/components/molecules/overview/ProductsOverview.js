@@ -5,7 +5,8 @@ import Button from "../../base/buttons/ButtonBase";
 // Import for getting/modifying data from database
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
-const ProductsOverview = ({farmerId}) => {
+const ProductsOverview = ({ farmerId }) => {
+  /*
   const data = [
     { id: 1, value: "Tomato", inStock: "in stock", unit: "5 kg" },
     { id: 2, value: "Cucumber", inStock: "in stock", unit: "5 kg" },
@@ -15,12 +16,16 @@ const ProductsOverview = ({farmerId}) => {
     { id: 6, value: "Potato", inStock: "out of stock", unit: "5 kg" },
     { id: 7, value: "Mushroom", inStock: "in stock", unit: "5 kg" },
   ];
-  const [products, setProducts] = useState(data);
+  */
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      setProducts(await dbData.getAllProducts());
-    }
+      // CHANGE 31 to farmerId when problem of id turning undefined is fixed
+      const data = await dbData.getProductsByFarmerId(31);
+      console.log(farmerId);
+      setProducts(data);
+    };
 
     fetchProducts();
   }, []);
