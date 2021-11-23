@@ -16,9 +16,11 @@
 @import "components/molecules/overview/_productsoverview";
 
 // Organisms
+@import "components/organisms/authenticator-components/_authenticator-components";
 @import "components/organisms/authentication/_authentication";
 @import '@aws-amplify/ui-react/styles.css';
 
 
 // React original styles
 @import "App";
+@import "Amplify";

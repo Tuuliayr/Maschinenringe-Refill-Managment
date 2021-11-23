@@ -2,6 +2,8 @@
 $color-black: black;
 $color-white: white;
 $color-green: #65b22e;
+$color-dark-green: #38790a;
+$color-super-light-green: rgb(208, 253, 208);
 $color-light-green: lightgreen;
 $color-yellow-green: yellowgreen;
 $color-yellow: yellow;
@@ -17,6 +19,8 @@ $defaultColors: (
   text-inverse: $color-white,
   primary: $color-green,
   primary-secondary: $color-light-green,
+  primary-dark: $color-dark-green,
+  light-background: $color-super-light-green,
   button-primary: $color-white,
   stock-full: $color-yellow-green,
   stock-low: $color-yellow,
