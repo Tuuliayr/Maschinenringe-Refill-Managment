@@ -93,6 +93,21 @@ export const listProducts = /* GraphQL */ `
     }
   }
 `;
+export const listProductsByFarmerId = /* GraphQL */ `
+  query ListProductsByFarmerId($farmer_id: Int) {
+    listProductsByFarmerId(farmer_id: $farmer_id) {
+      id
+      name
+      price_per_unit
+      unit_value
+      stock_quantity
+      low_stock_definition
+      expiration_date
+      farmer_id
+      salesbox_id
+    }
+  }
+`;
 export const getSalesbox = /* GraphQL */ `
   query GetSalesbox($id: Int!) {
     getSalesbox(id: $id) {
