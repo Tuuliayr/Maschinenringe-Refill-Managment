@@ -135,7 +135,7 @@ function App() {
     );
   };
 
-  const productlist = () => {
+  const showProducts = () => {
     return (
       <div>
         {products.map((product) => (
@@ -157,10 +157,6 @@ function App() {
     );
   };
 
-  const showProducts = () => {
-    return <div></div>;
-  };
-
   return (
     <Authenticator loginMechanisms={["email"]}>
       {({ signOut, user }) => (
@@ -173,7 +169,6 @@ function App() {
           />
           <button onClick={signOut}>Sign out</button>
           <Main farmerId={id} />
-          <div>{showProducts()}</div>
         </div>
       )}
     </Authenticator>
