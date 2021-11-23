@@ -1,0 +1,46 @@
+.auth-logo {
+  max-width: 12rem;
+  max-height: 12rem;
+}
+
+.sign-up {
+  &__accept-policy {
+    padding: 0;
+    margin: 0;
+  }  
+}
+
+.sign-up-policy {
+  width: 100%;
+  position: absolute;
+  top: 15rem;
+  background-color: clr(text-inverse);
+  border: $border-black;
+  margin-left: -2px;
+
+  &__title {
+    padding: $space-s;
+    margin:0;
+  }
+
+  &__content {
+    padding: 0 $space-s;
+    margin: 0;
+    text-align: left;
+  }
+
+  &__link {
+    color: clr(primary);
+  }
+
+  &__close-button {
+    @include button-reset();
+
+    background-color: clr(primary);
+    padding: $space-xxs $space-s;
+    margin: $space-xs;
+    font-size: $body-font-size;
+    color: clr(text-inverse);
+  }
+}
+

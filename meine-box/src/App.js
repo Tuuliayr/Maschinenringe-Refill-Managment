@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
+import {authenticatorComponents} from "./components/organisms/authenticator-components/authenticator-components";
 import Main from "./components/pages/Main";
 import "./Styles.scss";
 
@@ -158,7 +159,10 @@ function App() {
   };
 
   return (
-    <Authenticator loginMechanisms={['email']}>
+    <Authenticator 
+      components={authenticatorComponents} 
+      loginMechanisms={['email']}
+    >
       {({ signOut, user }) => (
         <div className="App">
           <Authentication 
