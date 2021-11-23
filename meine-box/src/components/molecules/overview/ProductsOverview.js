@@ -6,29 +6,20 @@ import Button from "../../base/buttons/ButtonBase";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const ProductsOverview = ({ farmerId }) => {
-  /*
-  const data = [
-    { id: 1, value: "Tomato", inStock: "in stock", unit: "5 kg" },
-    { id: 2, value: "Cucumber", inStock: "in stock", unit: "5 kg" },
-    { id: 3, value: "Eggs", inStock: "in stock", unit: "6 pcs" },
-    { id: 4, value: "Cabbage", inStock: "in stock", unit: "5 kg" },
-    { id: 5, value: "Onions", inStock: "in stock", unit: "5 kg" },
-    { id: 6, value: "Potato", inStock: "out of stock", unit: "5 kg" },
-    { id: 7, value: "Mushroom", inStock: "in stock", unit: "5 kg" },
-  ];
-  */
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      // CHANGE 31 to farmerId when problem of id turning undefined is fixed
-      const data = await dbData.getProductsByFarmerId(31);
+      const data = await dbData.getProductsByFarmerId(farmerId);
       console.log(farmerId);
       setProducts(data);
     };
 
-    fetchProducts();
-  }, []);
+    if(farmerId !== undefined) {
+      fetchProducts();
+    }
+  }, [farmerId]);
 
   return (
     <div>

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../../base/buttons/ButtonBase";
 
-const MyBoxes = () => {
+const MyBoxes = ({farmerId}) => {
+
+  useEffect(() => {
+    //console.log(farmerId);
+  })
+
   return (
     <div>
       <h1>My boxes</h1>

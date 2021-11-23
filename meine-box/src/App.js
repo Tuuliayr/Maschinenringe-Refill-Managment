@@ -58,12 +58,13 @@ function App() {
 
   async function getProducts() {
     // Fetching all product from farmer with id | UNDER CONSTRUCTION
-    const productData = await dbData.getProductsByFarmerId(1);
+    const productData = await dbData.getProductsByFarmerId(id);
 
     // Fetching all product
     //const productData = await dbData.getAllProducts();
     //console.log(productData);
     setProducts(productData);
+    console.log(productData);
     /*
     // Fetching one product with id
     const singleProduct = await dbData.getOneProduct(1);
