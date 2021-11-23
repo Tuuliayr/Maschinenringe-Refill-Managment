@@ -12,7 +12,6 @@ const ProductsOverview = ({ farmerId }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await dbData.getProductsByFarmerId(farmerId);
-      console.log(farmerId);
       setProducts(data);
     };
 

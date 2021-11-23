@@ -64,7 +64,6 @@ function App() {
     //const productData = await dbData.getAllProducts();
     //console.log(productData);
     setProducts(productData);
-    console.log(productData);
     /*
     // Fetching one product with id
     const singleProduct = await dbData.getOneProduct(1);
