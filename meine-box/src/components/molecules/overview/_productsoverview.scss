@@ -39,6 +39,14 @@
   border: 1px solid $color-black;
   background-color: clr(stock-full);
   font-family: $font-body;
+
+  &--yellow {
+    background-color: clr(stock-low);
+  }
+
+  &--red {
+    background-color: clr(stock-empty);
+  }
 }
 
 .units_left {
