@@ -1,0 +1,35 @@
+.amplify-button {
+  border-color: clr(primary);
+  color: clr(primary-dark);
+
+  &[data-variation=primary] {
+    background-color: clr(primary);
+
+    &:hover {
+      background-color: clr(primary-dark);
+    }
+  }
+
+  &[data-variation=link] {
+    color: clr(primary);
+
+    &:hover {
+      color: clr(primary-dark);
+    }
+  }
+}
+.amplify-tabs-item {
+
+  &[data-state=active]{
+    color: clr(primary);
+    border-color: clr(primary-dark);
+  }
+
+  &:hover {
+    color: clr(primary-dark);
+  }
+}
+
+input:-internal-autofill-selected {
+  background-color: clr(light-background) !important;
+}
