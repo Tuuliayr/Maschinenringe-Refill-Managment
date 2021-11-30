@@ -39,8 +39,20 @@ const MyBoxes = ({farmerId}) => {
           productsInBox.push(product);
         }
       });
-      productsInBoxes.push(productsInBox);
+      // arrange products in a box descending based on the stock level
+      const arranged = productsInBox.sort((x, y) => (
+        // commented line wont work since if other product has bigger low stock definition 
+        // the product that has 0 stock would be lover than the porduct with low stock
+        //x.stock_quantity - x.low_stock_definition) - (y.stock_quantity - y.low_stock_definition)
+        x.stock_quantity - y.stock_quantity
+      ));
+      if (arranged.length > 3) {
+        productsInBoxes.push(arranged.slice(0,2));
+      } else {
+        productsInBoxes.push(arranged);
+      }
     })
+
     setProductsInBoxes(productsInBoxes);
   }, [boxes]);
 
