@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 import Authentication from "./components/organisms/authentication/Authentication";
-import {authenticatorComponents} from "./components/organisms/authenticator-components/authenticator-components";
+import { authenticatorComponents } from "./components/organisms/authenticator-components/authenticator-components";
 import Main from "./components/pages/Main";
 import "./Styles.scss";
 
@@ -57,8 +57,11 @@ function App() {
   }
 
   async function getProducts() {
-    // Fetching all product from farmer with id | UNDER CONSTRUCTION
+    // Fetching all product from farmer with id
     const productData = await dbData.getProductsByFarmerId(1);
+
+    // Fetching all product from salesbox with salesbox_id
+    //const productData = await dbData.getProductsBySalesboxId(2);
 
     // Fetching all product
     //const productData = await dbData.getAllProducts();
@@ -159,9 +162,9 @@ function App() {
   };
 
   return (
-    <Authenticator 
-      components={authenticatorComponents} 
-      loginMechanisms={['email']}
+    <Authenticator
+      components={authenticatorComponents}
+      loginMechanisms={["email"]}
     >
       {({ signOut, user }) => (
         <div className="App">
