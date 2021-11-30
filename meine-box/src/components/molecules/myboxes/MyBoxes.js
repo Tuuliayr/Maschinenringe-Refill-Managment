@@ -47,7 +47,7 @@ const MyBoxes = ({farmerId}) => {
         x.stock_quantity - y.stock_quantity
       ));
       if (arranged.length > 3) {
-        productsInBoxes.push(arranged.slice(0,2));
+        productsInBoxes.push(arranged.slice(0,3));
       } else {
         productsInBoxes.push(arranged);
       }
@@ -59,9 +59,6 @@ const MyBoxes = ({farmerId}) => {
   return (
     <div>
       <h1>My boxes</h1>
-      <NavLink to="/productsoverview">
-        <Button>products</Button>
-      </NavLink>
       {boxes.map((box, index) => (
         <SalesboxCard key={box} boxId={box} boxProducts={productsInBoxes[index]} />
       ))}
