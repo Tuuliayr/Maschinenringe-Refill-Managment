@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import ProductCard from "../../base/ProductCards.js";
 import Button from "../../base/buttons/ButtonBase";
 // Import for getting/modifying data from database
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const ProductsOverview = ({ farmerId }) => {
+  const boxId = useParams().boxId;
 
   const [products, setProducts] = useState([]);
 
@@ -13,10 +14,12 @@ const ProductsOverview = ({ farmerId }) => {
     const fetchProducts = async () => {
       const data = await dbData.getProductsByFarmerId(farmerId);
       setProducts(data);
+      console.log(boxId);
     };
 
     if(farmerId !== undefined) {
       fetchProducts();
+      
     }
   }, [farmerId]);
 

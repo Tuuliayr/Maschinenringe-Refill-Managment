@@ -6,7 +6,6 @@
   border-radius: $radius-primary;
   box-shadow: $box-shadow-primary;
 
-
   &__title {
     margin: 0;
     font-size: $h3-font-size;
@@ -16,4 +15,9 @@
     margin: 0;
     font-size: $font-14;
   }
+}
+
+.link {
+  text-decoration: none;
+  color: clr(text);
 }
