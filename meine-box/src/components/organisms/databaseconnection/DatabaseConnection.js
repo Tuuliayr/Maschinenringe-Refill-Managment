@@ -163,3 +163,13 @@ export const getProductsByFarmerId = async (farmerId) => {
   //console.log(productList.data.listProductsByFarmerId);
   return productList.data.listProductsByFarmerId;
 };
+
+export const getProductsBySalesboxId = async (salesboxId) => {
+  const productList = await API.graphql(
+    graphqlOperation(queries.listProductsBySalesboxId, {
+      salesbox_id: salesboxId,
+    })
+  );
+  console.log(productList.data.listProductsBySalesboxId);
+  return productList.data.listProductsBySalesboxId;
+};
