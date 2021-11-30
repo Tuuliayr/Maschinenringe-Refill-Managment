@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Restock from "../molecules/restock/Restock";
 import MyBoxes from "../molecules/myboxes/MyBoxes";
 import ProductsOverview from "../molecules/overview/ProductsOverview";

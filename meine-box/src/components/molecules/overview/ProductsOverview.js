@@ -23,8 +23,10 @@ const ProductsOverview = ({ farmerId }) => {
   }, [farmerId]);
 
   useEffect(() => {
-    setMyProducts(products.filter(product => product.farmer_id === farmerId));
-    setOthersProducts(products.filter(product => product.farmer_id !== farmerId));
+    const mine = products.filter(product => product.farmer_id === farmerId);
+    setMyProducts(mine.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
+    const others = products.filter(product => product.farmer_id !== farmerId);
+    setOthersProducts(others.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
   }, [products]);
 
   return (
@@ -35,7 +37,7 @@ const ProductsOverview = ({ farmerId }) => {
         </NavLink>
       </div>
       <h3>My products</h3>
-      <div>
+      <div className="product-overview__listing">
         {myProducts.map((product) => (
           <ProductCard
             key={product.id}
@@ -48,7 +50,7 @@ const ProductsOverview = ({ farmerId }) => {
         ))}
       </div>
       <h3>Others products</h3>
-      <div>
+      <div className="product-overview__listing">
         {othersProducts.map((product) => (
           <ProductCard
             key={product.id}
