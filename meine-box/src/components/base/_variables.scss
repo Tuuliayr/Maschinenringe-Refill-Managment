@@ -56,4 +56,7 @@ $space-xxl: 4.5rem;
 $radius-slight: 0.25rem;
 $radius-primary: 0.5rem;
 $border-black: 2px solid clr(text);
-$border-light-gray: 2px solid clr(accent)
+$border-light-gray: 2px solid clr(accent);
+
+/* Box shadow effect */
+$box-shadow-primary: 0 0.25rem 0.25rem clr(accent-transparent);

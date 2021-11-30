@@ -17,7 +17,7 @@ const BoxProductCard = ({name, quantity, lowStock, unit}) => {
         <div className="box-product-card__icon">{icon}</div>
         <div className="box-product-card__name">{name}</div>
       </div>
-      <div className="box-product-card__stock">{quantity}{unit} in stock</div>
+      <div className="box-product-card__stock">{quantity} {unit} in stock</div>
     </div>
   );
 }
