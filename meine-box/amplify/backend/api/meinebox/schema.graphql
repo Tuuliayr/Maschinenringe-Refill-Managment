@@ -150,6 +150,7 @@ type Query {
   getProduct(id: Int!): product
   listProducts: [product]
   listProductsByFarmerId(farmer_id: Int): [product]
+  listProductsBySalesboxId(salesbox_id: Int): [product]
   getSalesbox(id: Int!): salesbox
   listSalesboxs: [salesbox]
 }

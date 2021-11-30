@@ -17,12 +17,12 @@
 
 // Molecules
 @import "components/molecules/overview/_productsoverview";
+@import "components/molecules/restock/_restock";
 
 // Organisms
 @import "components/organisms/authenticator-components/_authenticator-components";
 @import "components/organisms/authentication/_authentication";
-@import '@aws-amplify/ui-react/styles.css';
-
+@import "@aws-amplify/ui-react/styles.css";
 
 // React original styles
 @import "App";
