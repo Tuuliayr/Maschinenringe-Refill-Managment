@@ -7,8 +7,7 @@ const Settings = ({signOut}) => {
       <img 
         className="settings__logo"
         src={logo} 
-        aria-hidden="true" 
-        role="presentation"/>
+        alt="Meine Box Logo"/>
         <h5 className="settings__title" >Meine Box | Maschinenring</h5>
         <button onClick={signOut}>Sign out</button>
 

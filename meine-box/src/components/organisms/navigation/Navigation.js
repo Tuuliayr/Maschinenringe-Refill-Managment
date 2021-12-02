@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams , useLocation} from "react-router-dom";
+import { NavLink , useLocation} from "react-router-dom";
 
 import {ReactComponent as Home} from "../../../images/icons/store-alt-solid.svg";
 import {ReactComponent as Menu} from "../../../images/icons/bars-solid.svg";
@@ -13,7 +13,7 @@ const Navigation = () =>  {
 
   useEffect(() => {
     setLocation(loc.pathname)
-  });
+  }, [loc.pathname]);
 
   useEffect(() => {
     if(location === "/") {

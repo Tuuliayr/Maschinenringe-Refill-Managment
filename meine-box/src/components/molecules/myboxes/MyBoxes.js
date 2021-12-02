@@ -52,7 +52,7 @@ const MyBoxes = ({farmerId}) => {
     })
 
     setProductsInBoxes(productsInBoxes);
-  }, [boxes]);
+  }, [boxes, products]);
 
   return (
     <div className="my-boxes">
