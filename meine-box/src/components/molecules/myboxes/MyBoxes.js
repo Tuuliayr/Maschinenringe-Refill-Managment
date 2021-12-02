@@ -11,6 +11,7 @@ const MyBoxes = ({farmerId}) => {
 
   // fetch all the products of the farmer
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchProducts = async () => {
       const data = await dbData.getProductsByFarmerId(farmerId);
       setProducts(data);

@@ -12,6 +12,7 @@ const ProductsOverview = ({ farmerId }) => {
   const [othersProducts, setOthersProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchProducts = async () => {
       const data = await dbData.getProductsBySalesboxId(boxId);
       setProducts(data);

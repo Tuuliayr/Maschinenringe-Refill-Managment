@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../base/buttons/ButtonBase";
 import logo from "../../../Logo.png"
 
 const Settings = ({signOut}) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
+
   return (
     <div className="settings">
       <img 
