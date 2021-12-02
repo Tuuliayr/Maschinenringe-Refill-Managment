@@ -171,3 +171,13 @@ export const getProductsBySalesboxId = async (salesboxId) => {
   );
   return productList.data.listProductsBySalesboxId;
 };
+
+export const getSalesboxdata = async (salesboxId) => {
+  const salesbox = await API.graphql(
+    graphqlOperation(queries.getSalesbox, {
+      id: salesboxId,
+    })
+  );
+  console.log(salesbox);
+  return salesbox.data.getSalesbox;
+};
