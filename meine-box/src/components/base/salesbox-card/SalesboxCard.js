@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import BoxProductCard from '../box-product-card/BoxProductCard';
+import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const SalesboxCard = ({boxId, boxProducts}) => {
   const [products, setProducts] = useState([]);
@@ -10,6 +11,17 @@ const SalesboxCard = ({boxId, boxProducts}) => {
       setProducts(boxProducts);
     }
   }, [boxProducts]);
+
+  useEffect(() => {
+    const fetchBox = async () => {
+      // const box = await dbData.getBox(boxId);
+      // console.log(box);
+    }
+
+    if(boxId !== undefined) {
+      fetchBox();
+    }
+  }) 
 
   return (
     <NavLink className="link" to={`/productsoverview/${boxId}`}>
