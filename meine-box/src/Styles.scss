@@ -19,6 +19,7 @@
 @import "components/molecules/overview/_product-cards";
 @import "components/molecules/overview/_productsoverview";
 @import "components/molecules/restock/_restock";
+@import "components/molecules/myboxes/_my-boxes";
 
 // Organisms
 @import "components/organisms/authenticator-components/_authenticator-components";
@@ -26,6 +27,9 @@
 @import "@aws-amplify/ui-react/styles.css";
 @import "components/organisms/navigation/_navigation";
 @import "components/organisms/settings/_settings";
+
+// Pages
+@import "components/pages/_main";
 
 // Root styles
 @import "App";
