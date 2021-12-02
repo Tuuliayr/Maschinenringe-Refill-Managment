@@ -55,8 +55,8 @@ const MyBoxes = ({farmerId}) => {
   }, [boxes]);
 
   return (
-    <div>
-      <h1>My boxes</h1>
+    <div className="my-boxes">
+      <h1 className="my-boxes__title">My boxes</h1>
       {boxes.map((box, index) => (
         <SalesboxCard key={box} boxId={box} boxProducts={productsInBoxes[index]} />
       ))}
