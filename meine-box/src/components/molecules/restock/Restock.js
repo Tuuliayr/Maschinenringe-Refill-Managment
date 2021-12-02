@@ -10,6 +10,7 @@ const Restock = ({ farmerId }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchProducts = async () => {
       // CHANGE 31 to farmerId when problem of id turning undefined is fixed
       const data = await dbData.getProductsByFarmerId(31);
