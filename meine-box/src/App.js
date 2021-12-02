@@ -61,6 +61,9 @@ function App() {
     // Fetching all product from farmer with id
     const productData = await dbData.getProductsByFarmerId(1);
 
+    // Fetching salesboxdata with id
+    const salesbox = await dbData.getSalesboxdata(1);
+
     // Fetching all product from salesbox with salesbox_id
     //const productData = await dbData.getProductsBySalesboxId(2);
 
