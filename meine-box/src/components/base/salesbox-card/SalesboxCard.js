@@ -5,6 +5,7 @@ import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const SalesboxCard = ({boxId, boxProducts}) => {
   const [products, setProducts] = useState([]);
+  const [address, setAddress] = useState("");
 
   useEffect(() => {
     if(boxProducts !== undefined) {
@@ -14,11 +15,11 @@ const SalesboxCard = ({boxId, boxProducts}) => {
 
   useEffect(() => {
     const fetchBox = async () => {
-      // const box = await dbData.getBox(boxId);
-      // console.log(box);
+      const salesbox = await dbData.getSalesboxdata(boxId);
+      setAddress(salesbox.street_address);
     }
 
-    if(boxId !== undefined) {
+    if(boxId !== undefined && address === "") {
       fetchBox();
     }
   }) 
@@ -27,7 +28,7 @@ const SalesboxCard = ({boxId, boxProducts}) => {
     <NavLink className="link" to={`/productsoverview/${boxId}`}>
       <div className="box-card"> 
         <h3 className="box-card__title"> Box {boxId} </h3>
-        <p className="box-card__address">Address</p>
+        <p className="box-card__address">{address}</p>
         {products.map(product => (
           <BoxProductCard
             key={product.id}
