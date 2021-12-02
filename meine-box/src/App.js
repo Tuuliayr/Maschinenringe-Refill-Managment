@@ -175,8 +175,7 @@ function App() {
             farmers={farmers}
             onHandleID={handleGetId}
           />
-          <button onClick={signOut}>Sign out</button>
-          <Main farmerId={id} />
+          <Main farmerId={id} signOut={signOut} />
           <Navigation />
         </div>
       )}
