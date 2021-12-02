@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = (props) => {
   return (
-    <button className="button_primary" {...props}>
+    <button className="button" {...props}>
       {props.children}
     </button>
   );

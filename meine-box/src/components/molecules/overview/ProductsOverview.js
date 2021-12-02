@@ -30,12 +30,14 @@ const ProductsOverview = ({ farmerId }) => {
   }, [products]);
 
   return (
-    <div>
-      <div>
+    <div className="products-overview">
+      <div className="products-overview__header">
+        <h1 className="products-overview__title">Box {boxId}</h1>
         <NavLink to="/restock">
           <Button>Restock</Button>
         </NavLink>
       </div>
+
       <h3>My products</h3>
       <div className="product-overview__listing">
         {myProducts.map((product) => (

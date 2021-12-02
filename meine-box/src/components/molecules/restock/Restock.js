@@ -62,7 +62,7 @@ const Restock = ({ farmerId }) => {
             addProductToState={addProductToState}
           />
           {/* <button
-            className="button_primary"
+            className="button"
             style={{ backgroundColor: "#fa4359" }}
             onClick={handleModal}
           >
