@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Button from "../../base/buttons/ButtonBase";
 // Import for getting/modifying data from database
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 import SalesboxCard from "../../base/salesbox-card/SalesboxCard";
@@ -57,8 +55,8 @@ const MyBoxes = ({farmerId}) => {
   }, [boxes]);
 
   return (
-    <div>
-      <h1>My boxes</h1>
+    <div className="my-boxes">
+      <h1 className="my-boxes__title">My boxes</h1>
       {boxes.map((box, index) => (
         <SalesboxCard key={box} boxId={box} boxProducts={productsInBoxes[index]} />
       ))}

@@ -8,6 +8,7 @@ import "./Styles.scss";
 
 // Import for getting/modifying data from database
 import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
+import Navigation from "./components/organisms/navigation/Navigation";
 
 function App() {
   const [farmers, setFarmers] = useState([]);
@@ -59,6 +60,9 @@ function App() {
   async function getProducts() {
     // Fetching all product from farmer with id
     const productData = await dbData.getProductsByFarmerId(1);
+
+    // Fetching salesboxdata with id
+    const salesbox = await dbData.getSalesboxdata(1);
 
     // Fetching all product from salesbox with salesbox_id
     //const productData = await dbData.getProductsBySalesboxId(2);
@@ -174,8 +178,8 @@ function App() {
             farmers={farmers}
             onHandleID={handleGetId}
           />
-          <button onClick={signOut}>Sign out</button>
-          <Main farmerId={id} />
+          <Main farmerId={id} signOut={signOut} />
+          <Navigation />
         </div>
       )}
     </Authenticator>

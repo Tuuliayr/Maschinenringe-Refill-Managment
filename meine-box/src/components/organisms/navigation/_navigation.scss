@@ -1,0 +1,19 @@
+.navigation {
+  background-color: clr(background-dark);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  &__icon {
+    width: $icon-m;
+    height: $icon-m;
+    color: clr(text-inverse);
+    padding: $space-xs;
+
+    &--open {
+      color: clr(primary);
+    }
+  }
+}
