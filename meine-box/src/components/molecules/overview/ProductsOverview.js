@@ -42,21 +42,21 @@ const ProductsOverview = ({ farmerId }) => {
           <ProductCard
             key={product.id}
             name={product.name}
-            stock_quantity={product.stock_quantity}
-            low_stock_definition={product.low_stock_definition}
+            quantity={product.stock_quantity}
+            lowStock={product.low_stock_definition}
             inStock={product.inStock}
             unit={product.unit_value}
           />
         ))}
       </div>
-      <h3>Others products</h3>
+      <h3>Other's products</h3>
       <div className="product-overview__listing">
         {othersProducts.map((product) => (
           <ProductCard
             key={product.id}
             name={product.name}
-            stock_quantity={product.stock_quantity}
-            low_stock_definition={product.low_stock_definition}
+            quantity={product.stock_quantity}
+            lowStock={product.low_stock_definition}
             inStock={product.inStock}
             unit={product.unit_value}
           />
