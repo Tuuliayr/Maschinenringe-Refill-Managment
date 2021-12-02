@@ -8,6 +8,7 @@ import "./Styles.scss";
 
 // Import for getting/modifying data from database
 import * as dbData from "./components/organisms/databaseconnection/DatabaseConnection";
+import Navigation from "./components/organisms/navigation/Navigation";
 
 function App() {
   const [farmers, setFarmers] = useState([]);
@@ -177,8 +178,8 @@ function App() {
             farmers={farmers}
             onHandleID={handleGetId}
           />
-          <button onClick={signOut}>Sign out</button>
-          <Main farmerId={id} />
+          <Main farmerId={id} signOut={signOut} />
+          <Navigation />
         </div>
       )}
     </Authenticator>

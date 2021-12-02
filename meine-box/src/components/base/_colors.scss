@@ -10,6 +10,7 @@ $color-light-green: lightgreen;
 $color-yellow-green: yellowgreen;
 $color-yellow: yellow;
 $color-red: #fa4359;
+$color-dark-turquoise: #003031;
 
 // Use these colors via clr() function rather than colors directly.
 // This way we can change colors easily and fast.
@@ -25,6 +26,8 @@ $defaultColors: (
   accent: $color-light-gray,
   accent-transparent: rgba($color-black, 0.25),
   background-gray: $color-whitesmoke,
+  background-dark: $color-dark-turquoise,
+  background-dark-transparent: rgba($color-dark-turquoise, 0.9),
   light-background: $color-super-light-green,
   button-primary: $color-white,
   stock-full: $color-yellow-green,

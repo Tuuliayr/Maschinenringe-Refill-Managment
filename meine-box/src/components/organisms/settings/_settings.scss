@@ -1,0 +1,10 @@
+.settings {
+  height: 100vh;
+  background-color: clr(background-dark-transparent);
+  color: clr(text-inverse);
+
+  &__logo {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
