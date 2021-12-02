@@ -7,9 +7,9 @@ import {ReactComponent as Menu} from "../../../images/icons/bars-solid.svg";
 const Navigation = () =>  {
   const [location, setLocation] = useState();
   const [home, setHome] = useState("");
+  const [settings, setSettings] = useState("");
 
   const loc = useLocation();
-    console.log(loc.pathname);
 
   useEffect(() => {
     setLocation(loc.pathname)
@@ -18,6 +18,10 @@ const Navigation = () =>  {
   useEffect(() => {
     if(location === "/") {
       setHome("open");
+      setSettings("");
+    } else if (location === "/settings") {
+      setSettings("open");
+      setHome("");
     } else {
       setHome("");
     }
@@ -28,8 +32,8 @@ const Navigation = () =>  {
       <NavLink to="/" > 
         <Home className={`navigation__icon navigation__icon--${home}`}/>
       </ NavLink>
-      <NavLink to="/">
-        <Menu className={"navigation__icon navigation__icon--burger"} />
+      <NavLink to="/settings">
+        <Menu className={`navigation__icon navigation__icon--${settings}`} />
       </NavLink>
     </div>
   );
