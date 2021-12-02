@@ -24,7 +24,9 @@
 @import "components/organisms/authenticator-components/_authenticator-components";
 @import "components/organisms/authentication/_authentication";
 @import "@aws-amplify/ui-react/styles.css";
+@import "components/organisms/navigation/_navigation";
+@import "components/organisms/settings/_settings";
 
-// React original styles
+// Root styles
 @import "App";
 @import "Amplify";
