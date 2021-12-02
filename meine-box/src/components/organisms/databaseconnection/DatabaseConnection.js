@@ -160,7 +160,6 @@ export const getProductsByFarmerId = async (farmerId) => {
   const productList = await API.graphql(
     graphqlOperation(queries.listProductsByFarmerId, { farmer_id: farmerId })
   );
-  //console.log(productList.data.listProductsByFarmerId);
   return productList.data.listProductsByFarmerId;
 };
 
@@ -170,6 +169,5 @@ export const getProductsBySalesboxId = async (salesboxId) => {
       salesbox_id: salesboxId,
     })
   );
-  console.log(productList.data.listProductsBySalesboxId);
   return productList.data.listProductsBySalesboxId;
 };

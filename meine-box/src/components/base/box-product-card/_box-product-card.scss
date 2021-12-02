@@ -1,0 +1,18 @@
+.box-product-card {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-xxs;
+  margin: $space-xs 0;
+  border: $border-light-gray;
+  border-radius: $radius-slight;
+
+  &__title {
+    display: flex;
+    
+  }
+  &__icon {
+    padding-right: $space-xs;
+    height: 1rem;
+    width: 1rem;
+  }
+}

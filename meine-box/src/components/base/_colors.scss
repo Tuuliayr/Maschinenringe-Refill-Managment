@@ -1,6 +1,7 @@
 // Here are the color definitions
 $color-black: black;
 $color-white: white;
+$color-light-gray: #d3d3d3;
 $color-whitesmoke: whitesmoke;
 $color-green: #65b22e;
 $color-dark-green: #38790a;
@@ -21,6 +22,8 @@ $defaultColors: (
   primary: $color-green,
   primary-secondary: $color-light-green,
   primary-dark: $color-dark-green,
+  accent: $color-light-gray,
+  accent-transparent: rgba($color-black, 0.25),
   background-gray: $color-whitesmoke,
   light-background: $color-super-light-green,
   button-primary: $color-white,

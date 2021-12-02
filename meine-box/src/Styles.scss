@@ -4,15 +4,19 @@
 // Base
 @import "components/base/_colors";
 @import "components/base/_variables";
-@import "components/base/buttons/_button";
-@import "components/base/buttons/_addbutton";
-
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/_breakpoint";
 @import "components/base/_breakpoints";
 @import "components/base/_mixins";
+@import "components/base/buttons/_button";
+@import "components/base/buttons/_addbutton";
+@import "components/base/salesbox-card/_salesbox-card";
+@import "components/base/box-product-card/_box-product-card";
+
+
 
 // Molecules
+@import "components/molecules/overview/_product-cards";
 @import "components/molecules/overview/_productsoverview";
 @import "components/molecules/restock/_restock";
 

@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import ProductCard from "./ProductCards.js";
 import Button from "../../base/buttons/ButtonBase";
 // Import for getting/modifying data from database
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const ProductsOverview = ({ farmerId }) => {
+  const boxId = useParams().boxId;
   const [products, setProducts] = useState([]);
+  const [myProducts, setMyProducts] = useState([]);
+  const [othersProducts, setOthersProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      // CHANGE 31 to farmerId when problem of id turning undefined is fixed
-      const data = await dbData.getProductsByFarmerId(31);
-      console.log(farmerId);
+      const data = await dbData.getProductsBySalesboxId(boxId);
       setProducts(data);
     };
 
-    fetchProducts();
-  }, []);
+    if(farmerId !== undefined) {
+      fetchProducts();
+    }
+  }, [farmerId]);
+
+  useEffect(() => {
+    const mine = products.filter(product => product.farmer_id === farmerId);
+    setMyProducts(mine.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
+    const others = products.filter(product => product.farmer_id !== farmerId);
+    setOthersProducts(others.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
+  }, [products]);
 
   return (
     <div>
@@ -26,13 +36,27 @@ const ProductsOverview = ({ farmerId }) => {
           <Button>Restock</Button>
         </NavLink>
       </div>
-      <div>
-        {products.map((product) => (
+      <h3>My products</h3>
+      <div className="product-overview__listing">
+        {myProducts.map((product) => (
           <ProductCard
             key={product.id}
             name={product.name}
-            stock_quantity={product.stock_quantity}
-            low_stock_definition={product.low_stock_definition}
+            quantity={product.stock_quantity}
+            lowStock={product.low_stock_definition}
+            inStock={product.inStock}
+            unit={product.unit_value}
+          />
+        ))}
+      </div>
+      <h3>Other's products</h3>
+      <div className="product-overview__listing">
+        {othersProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            name={product.name}
+            quantity={product.stock_quantity}
+            lowStock={product.low_stock_definition}
             inStock={product.inStock}
             unit={product.unit_value}
           />

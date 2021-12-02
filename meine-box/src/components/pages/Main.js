@@ -9,7 +9,7 @@ function Main({farmerId}) {
       <div className="content">
         <Routes>
           <Route path="/" element={<MyBoxes farmerId={farmerId} />} />
-          <Route path="/productsoverview" element={<ProductsOverview farmerId={farmerId}/>} />
+          <Route path="/productsoverview/:boxId" element={<ProductsOverview farmerId={farmerId}/>} />
           <Route path="/restock" element={<Restock farmerId={farmerId}/>} />
         </Routes>
       </div>
