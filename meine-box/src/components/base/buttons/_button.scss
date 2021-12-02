@@ -23,7 +23,8 @@
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: $radius-primary;
-  padding: 1.2rem 1.45rem;
+  padding: $space-s;
+  margin: $space-xs;
 
   color: #f6f5f5;
   cursor: pointer;
