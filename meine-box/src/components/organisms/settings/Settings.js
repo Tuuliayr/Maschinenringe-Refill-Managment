@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../base/buttons/ButtonBase";
 import logo from "../../../Logo.png"
 
 const Settings = ({signOut}) => {
@@ -10,7 +11,7 @@ const Settings = ({signOut}) => {
         aria-hidden="true" 
         role="presentation"/>
         <h5 className="settings__title" >Meine Box | Maschinenring</h5>
-        <button onClick={signOut}>Sign out</button>
+        <Button className="button button__logout" onClick={signOut}>Sign out</Button>
 
     </div>
   );

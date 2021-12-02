@@ -21,6 +21,7 @@ const Navigation = () =>  {
     if(location === "/") {
       setHome("open");
       setSettings("");
+      setRestock("");
     } else if (location === "/settings") {
       setSettings("open");
       setHome("");

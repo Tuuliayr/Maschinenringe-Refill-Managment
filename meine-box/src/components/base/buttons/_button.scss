@@ -18,7 +18,7 @@
   //text-transform: uppercase;
 }
 
-.button_primary {
+.button {
   background: clr(primary);
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border: none;
@@ -34,9 +34,13 @@
   font-size: $font-18;
   line-height: $space-s;
   letter-spacing: 0.05rem;
-  //text-transform: uppercase;
+
+  &__logout {
+    padding: $space-xs;
+    font-size: $font-14;
+  }
 }
 
-.button_primary:hover {
+.button:hover {
   transform: scale(1.1);
 }
