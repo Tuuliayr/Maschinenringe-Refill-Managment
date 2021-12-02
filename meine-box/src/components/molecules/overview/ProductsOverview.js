@@ -21,14 +21,14 @@ const ProductsOverview = ({ farmerId }) => {
     if(farmerId !== undefined) {
       fetchProducts();
     }
-  }, [farmerId]);
+  }, [farmerId, boxId]);
 
   useEffect(() => {
     const mine = products.filter(product => product.farmer_id === farmerId);
     setMyProducts(mine.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
     const others = products.filter(product => product.farmer_id !== farmerId);
     setOthersProducts(others.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
-  }, [products]);
+  }, [products, farmerId]);
 
   return (
     <div className="products-overview">

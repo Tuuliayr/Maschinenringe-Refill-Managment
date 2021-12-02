@@ -20,8 +20,7 @@ const BoxProductCard = ({name, quantity, lowStock, unit}) => {
         <img 
           className="box-product-card__icon" 
           src={icon}
-          aria-hidden="true" 
-          role="presentation"
+          alt="Product status icon" 
         />
         <div className="box-product-card__name">{name}</div>
       </div>
