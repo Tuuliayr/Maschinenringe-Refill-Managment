@@ -1,5 +1,5 @@
 .settings {
-  height: 100vh;
+  height: calc(100vh);
   background-color: clr(background-dark-transparent);
   color: clr(text-inverse);
 
@@ -7,5 +7,18 @@
     padding-top: $space-m;
     height: 3.5rem;
     width: 3.5rem;
+  }
+
+  &__notification-nav {
+    background-color: clr(accent);
+    border-bottom: 3px solid clr(text);
+  }
+
+  &__notification-content {
+    padding-top: $space-m;
+    background-color: clr(text-inverse);
+    color: clr(text);
+    min-height: 43vh;
+    padding-bottom: 80px;
   }
 }
