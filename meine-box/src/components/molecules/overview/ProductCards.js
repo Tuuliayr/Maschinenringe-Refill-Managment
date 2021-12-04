@@ -20,8 +20,7 @@ const ProductCard = (props) => {
         <img 
             className="box-product-card__icon" 
             src={icon}
-            aria-hidden="true" 
-            role="presentation"
+            alt="product status icon"
           />
         <div className="product-card__name">{props.name}</div>
       </div>
