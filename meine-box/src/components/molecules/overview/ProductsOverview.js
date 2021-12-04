@@ -12,6 +12,7 @@ const ProductsOverview = ({ farmerId }) => {
   const [othersProducts, setOthersProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchProducts = async () => {
       const data = await dbData.getProductsBySalesboxId(boxId);
       setProducts(data);
@@ -30,12 +31,14 @@ const ProductsOverview = ({ farmerId }) => {
   }, [products, farmerId]);
 
   return (
-    <div>
-      <div>
+    <div className="products-overview">
+      <div className="products-overview__header">
+        <h1 className="products-overview__title">Box {boxId}</h1>
         <NavLink to="/restock">
           <Button>Restock</Button>
         </NavLink>
       </div>
+
       <h3>My products</h3>
       <div className="product-overview__listing">
         {myProducts.map((product) => (
