@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../base/buttons/ButtonBase";
 import logo from "../../../Logo.png";
 import NotificationNavbar from "../../molecules/notifications/NotificationNavbar";
@@ -20,9 +20,11 @@ const Settings = ({ signOut }) => {
       <Button className="button button__logout" onClick={signOut}>
         Sign out
       </Button>
-      <div className="settings__notification-bg">
+      <h2>Notification settings:</h2>
+      <div className="settings__notification-nav">
         <NotificationNavbar></NotificationNavbar>
       </div>
+      <div className="settings__notification-content">Content</div>
     </div>
   );
 };

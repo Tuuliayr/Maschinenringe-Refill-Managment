@@ -1,5 +1,5 @@
 .settings {
-  height: 100vh;
+  height: calc(100vh-100px);
   background-color: clr(background-dark-transparent);
   color: clr(text-inverse);
 
@@ -9,8 +9,13 @@
     width: 3.5rem;
   }
 
-  &__notification-bg {
+  &__notification-nav {
     background-color: clr(accent);
     border-bottom: 3px solid clr(text);
+  }
+
+  &__notification-content {
+    background-color: clr(text-inverse);
+    height: 46.5vh;
   }
 }
