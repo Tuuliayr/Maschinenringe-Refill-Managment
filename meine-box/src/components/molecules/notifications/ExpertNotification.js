@@ -1,37 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../base/buttons/ButtonBase";
+import NotificationCard from "../../base/notification-card/NotificationCard";
 
 const ExpertNotification = () => {
+  const data = [{ id: 1, time: "03:00 AM", notifyOf: "all" }];
   const [active, setActive] = useState("all");
+  const [notifications, setNotifications] = useState(data);
 
   return (
     <div>
-      <p>Add new notification.</p>
-      <h3>Notifications:</h3>
       <Button
-        className={`button button__notification-type ${
-          active === "all" ? "button__bg-black" : "button__bg-white"
-        } `}
+        className={`button button__notification-add`}
         onClick={() => setActive("all")}
       >
-        All Items
+        Add new notification
       </Button>
-      <Button
-        className={`button button__notification-type ${
-          active === "critical" ? "button__bg-black" : "button__bg-white"
-        } `}
-        onClick={() => setActive("critical")}
-      >
-        Critical Stock
-      </Button>
-      <Button
-        className={`button button__notification-type ${
-          active === "out" ? "button__bg-black" : "button__bg-white"
-        } `}
-        onClick={() => setActive("out")}
-      >
-        Out of Stock
-      </Button>
+      <h3>Notifications:</h3>
+      <div>
+        {notifications.map((note) => {
+          return <NotificationCard key={note.id} notification={note} />;
+        })}
+      </div>
     </div>
   );
 };

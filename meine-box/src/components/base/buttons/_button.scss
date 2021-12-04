@@ -49,6 +49,7 @@
     width: 10%;
     font-size: $font-16;
     min-width: 100px;
+    min-height: 80px;
   }
 
   &__bg-black {
@@ -59,6 +60,14 @@
   &__bg-white {
     background-color: clr(text-inverse);
     color: clr(text);
+  }
+
+  &__notification-add {
+    width: 20%;
+    background-color: clr(text);
+    font-size: $font-16;
+    color: clr(text-inverse);
+    min-width: 300px;
   }
 }
 
