@@ -20,7 +20,9 @@ const Settings = ({ signOut }) => {
       <Button className="button button__logout" onClick={signOut}>
         Sign out
       </Button>
-      <NotificationNavbar></NotificationNavbar>
+      <div className="settings__notification-bg">
+        <NotificationNavbar></NotificationNavbar>
+      </div>
     </div>
   );
 };
