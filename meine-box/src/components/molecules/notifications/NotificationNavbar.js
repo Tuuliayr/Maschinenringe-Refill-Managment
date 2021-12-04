@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import Button from "../../base/buttons/ButtonBase";
 
-const NotificationNavbar = () => {
+const NotificationNavbar = ({ handleChange }) => {
   const [expert, setExpert] = useState(false);
+
+  const changeView = (view) => {
+    if (view === "simple") {
+      handleChange("simple");
+      setExpert(false);
+    } else {
+      handleChange("expert");
+      setExpert(true);
+    }
+  };
 
   return (
     <div className="notification">
@@ -10,7 +20,7 @@ const NotificationNavbar = () => {
         className={`button button__notification-button ${
           expert ? "button__bg-white" : "button__bg-black"
         } `}
-        onClick={() => setExpert(false)}
+        onClick={() => changeView("simple")}
       >
         Simple
       </Button>
@@ -18,7 +28,7 @@ const NotificationNavbar = () => {
         className={`button button__notification-button ${
           expert ? "button__bg-black" : "button__bg-white"
         } `}
-        onClick={() => setExpert(true)}
+        onClick={() => changeView("expert")}
       >
         Expert
       </Button>
