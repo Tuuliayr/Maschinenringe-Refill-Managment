@@ -100,7 +100,7 @@ const AddNewProduct = (props) => {
         </div>
       </form>
       <div style={{ margin: "2rem 0 1rem 0" }}>
-        <button className="button_primary" onClick={handleSubmit}>
+        <button className="button" onClick={handleSubmit}>
           save
         </button>
       </div>

@@ -178,6 +178,5 @@ export const getSalesboxdata = async (salesboxId) => {
       id: salesboxId,
     })
   );
-  console.log(salesbox);
   return salesbox.data.getSalesbox;
 };
