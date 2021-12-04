@@ -15,7 +15,9 @@
   }
 
   &__notification-content {
+    padding-top: $space-m;
     background-color: clr(text-inverse);
+    color: clr(text);
     height: 46.5vh;
   }
 }

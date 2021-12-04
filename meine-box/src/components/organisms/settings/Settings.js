@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../../base/buttons/ButtonBase";
 import logo from "../../../Logo.png";
 import NotificationNavbar from "../../molecules/notifications/NotificationNavbar";
+import SimpleNotification from "../../molecules/notifications/SimpleNotification";
 
 const Settings = ({ signOut }) => {
   useEffect(() => {
@@ -24,7 +25,9 @@ const Settings = ({ signOut }) => {
       <div className="settings__notification-nav">
         <NotificationNavbar></NotificationNavbar>
       </div>
-      <div className="settings__notification-content">Content</div>
+      <div className="settings__notification-content">
+        <SimpleNotification></SimpleNotification>
+      </div>
     </div>
   );
 };

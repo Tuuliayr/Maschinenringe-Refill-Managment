@@ -45,6 +45,12 @@
     min-width: 150px;
   }
 
+  &__notification-type {
+    width: 10%;
+    font-size: $font-16;
+    min-width: 100px;
+  }
+
   &__bg-black {
     background-color: clr(text);
     color: clr(text-inverse);
