@@ -3,7 +3,10 @@ import Button from "../../base/buttons/ButtonBase";
 import NotificationCard from "../../base/notification-card/NotificationCard";
 
 const ExpertNotification = () => {
-  const data = [{ id: 1, time: "03:00 AM", notifyOf: "all" }];
+  const data = [
+    { id: 1, time: "03:00 AM", notifyOf: "all" },
+    { id: 2, time: "08:00 AM", notifyOf: "critical" },
+  ];
   const [active, setActive] = useState("all");
   const [notifications, setNotifications] = useState(data);
 
