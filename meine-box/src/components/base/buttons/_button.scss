@@ -39,6 +39,21 @@
     padding: $space-xs;
     font-size: $font-14;
   }
+
+  &__notification-button {
+    width: 20%;
+    min-width: 150px;
+  }
+
+  &__bg-black {
+    background-color: clr(text);
+    color: clr(text-inverse);
+  }
+
+  &__bg-white {
+    background-color: clr(text-inverse);
+    color: clr(text);
+  }
 }
 
 .button:hover {
