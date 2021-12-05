@@ -18,23 +18,25 @@ const ProductsOverview = ({ farmerId }) => {
       setProducts(data);
     };
 
-    if(farmerId !== undefined) {
+    if (farmerId !== undefined) {
       fetchProducts();
     }
   }, [farmerId, boxId]);
 
   useEffect(() => {
-    const mine = products.filter(product => product.farmer_id === farmerId);
-    setMyProducts(mine.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
-    const others = products.filter(product => product.farmer_id !== farmerId);
-    setOthersProducts(others.sort((x, y) => (x.stock_quantity - y.stock_quantity)));
+    const mine = products.filter((product) => product.farmer_id === farmerId);
+    setMyProducts(mine.sort((x, y) => x.stock_quantity - y.stock_quantity));
+    const others = products.filter((product) => product.farmer_id !== farmerId);
+    setOthersProducts(
+      others.sort((x, y) => x.stock_quantity - y.stock_quantity)
+    );
   }, [products, farmerId]);
 
   return (
     <div className="products-overview">
       <div className="products-overview__header">
         <h1 className="products-overview__title">Box {boxId}</h1>
-        <NavLink to="/restock">
+        <NavLink to={`/restock/${boxId}`}>
           <Button>Restock</Button>
         </NavLink>
       </div>
