@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Modal from "react-modal";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 import RestockCard from "./RestockCard";
@@ -6,26 +7,35 @@ import AddProductButton from "../../base/buttons/AddProductButton";
 import AddNewProduct from "./AddNewProduct";
 
 const Restock = ({ farmerId }) => {
+  const boxId = useParams().boxId;
   const [products, setProducts] = useState([]);
+  const [myProducts, setMyProducts] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchProducts = async () => {
-      // CHANGE 31 to farmerId when problem of id turning undefined is fixed
-      const data = await dbData.getProductsByFarmerId(31);
+      const data = await dbData.getProductsBySalesboxId(boxId);
       setProducts(data);
     };
 
-    fetchProducts();
-  }, []);
+    if (farmerId !== undefined) {
+      fetchProducts();
+    }
+  }, [farmerId, boxId]);
+
+  useEffect(() => {
+    // window.scrollTo(0, 0);
+    const mine = products.filter((product) => product.farmer_id === farmerId);
+    setMyProducts(mine.sort((x, y) => x.stock_quantity - y.stock_quantity));
+  }, [products, farmerId]);
 
   function handleModal() {
     setIsOpen(!modalIsOpen);
   }
 
   function addProductToState(product) {
-    setProducts((existingProducts) => [...existingProducts, product]);
+    setMyProducts((existingProducts) => [...existingProducts, product]);
   }
 
   // function afterOpenModal() {
@@ -39,9 +49,6 @@ const Restock = ({ farmerId }) => {
         <AddProductButton onClick={handleModal} />
         <Modal
           isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
-          // onRequestClose={handleModal}
-          // style={customStyles}
           ariaHideApp={false}
           contentLabel="Example Modal"
         >
@@ -61,18 +68,13 @@ const Restock = ({ farmerId }) => {
           <AddNewProduct
             handleModal={() => handleModal()}
             addProductToState={addProductToState}
+            farmerId={farmerId}
+            boxId={boxId}
           />
-          {/* <button
-            className="button"
-            style={{ backgroundColor: "#fa4359" }}
-            onClick={handleModal}
-          >
-            cancel
-          </button> */}
         </Modal>
       </div>
       <div>
-        {products.map((product) => (
+        {myProducts.map((product) => (
           <RestockCard
             key={product.id}
             name={product.name}
