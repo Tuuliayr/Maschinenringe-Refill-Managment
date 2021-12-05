@@ -7,7 +7,6 @@ const AddNewProduct = (props) => {
   const [unitValue, setUnitValue] = useState("kg");
   const [stockQty, setStockQty] = useState(undefined);
   const [lowStockDef, setLowStockDef] = useState(undefined);
-  const [expDate, setExpDate] = useState("");
 
   async function handleSubmit() {
     try {
@@ -18,8 +17,8 @@ const AddNewProduct = (props) => {
         stockQty,
         lowStockDef,
         "2021-12-22 00:00:00",
-        31,
-        1
+        props.farmerId,
+        props.boxId
       );
       const productObj = {
         id: Date.now(),
@@ -75,14 +74,6 @@ const AddNewProduct = (props) => {
                 onChange={(event) => setLowStockDef(event.target.value)}
               />
             </div>
-          </div>
-          <div className="field_expiration_date">
-            <input
-              type="text"
-              placeholder="2021-12-22 00:00:00"
-              style={{ display: "inline-block" }}
-              onChange={(event) => setExpDate(event.target.value)}
-            />
           </div>
           <div
             className="field_price"
