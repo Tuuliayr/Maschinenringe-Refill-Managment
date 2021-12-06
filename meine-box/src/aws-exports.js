@@ -35,6 +35,19 @@ const awsmobile = {
     "aws_appsync_region": "eu-central-1",
     "aws_appsync_authenticationType": "API_KEY",
     "aws_appsync_apiKey": "da2-km26blqk7zdhbgndzzuhcushhy",
+    "geo": {
+        "amazon_location_service": {
+            "region": "eu-central-1",
+            "maps": {
+                "items": {
+                    "muasMap-staging": {
+                        "style": "VectorEsriStreets"
+                    }
+                },
+                "default": "muasMap-staging"
+            }
+        }
+    },
     "aws_cognito_login_mechanisms": [
         "EMAIL"
     ]

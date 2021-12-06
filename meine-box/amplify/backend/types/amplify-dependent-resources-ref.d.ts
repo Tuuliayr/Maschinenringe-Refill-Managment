@@ -15,5 +15,13 @@ export type AmplifyDependentResourcesAttributes = {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
+    },
+    "geo": {
+        "muasMap": {
+            "Name": "string",
+            "Style": "string",
+            "Region": "string",
+            "Arn": "string"
+        }
     }
 }
