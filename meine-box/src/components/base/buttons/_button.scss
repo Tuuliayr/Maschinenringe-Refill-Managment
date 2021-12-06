@@ -52,6 +52,14 @@
     min-height: 80px;
   }
 
+  &__notification-expert {
+    width: 15vw;
+    font-size: $font-12;
+    min-width: 90px;
+    min-height: 40px;
+    padding: 0px 5px;
+  }
+
   &__bg-black {
     background-color: clr(text);
     color: clr(text-inverse);
@@ -60,6 +68,11 @@
   &__bg-white {
     background-color: clr(text-inverse);
     color: clr(text);
+  }
+
+  &__removebutton {
+    padding: 0px;
+    border-radius: 50px;
   }
 
   &__notification-add {

@@ -14,7 +14,8 @@ const SimpleNotification = () => {
         } `}
         onClick={() => setActive("all")}
       >
-        All Items
+        All <br />
+        Items
       </Button>
       <Button
         className={`button button__notification-type ${
