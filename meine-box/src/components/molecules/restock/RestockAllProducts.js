@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Modal from "react-modal";
+import React, { useState, useEffect } from "react";
+// import Modal from "react-modal";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
-import AddNewProduct from "./AddNewProduct";
-import ModifyProductCard from "./ModifyProductCard.js";
-import add from "../../../images/mr-svg-icons/add-icon.svg";
+// import AddNewProduct from "./AddNewProduct";
+import ModifyProductCard from "./ModifyProductCard";
+// import add from "../../../images/mr-svg-icons/add-icon.svg";
 
-const Restock = ({ farmerId }) => {
-  const boxId = useParams().boxId;
+const RestockAllProducts = ({ farmerId }) => {
   const [products, setProducts] = useState([]);
   const [myProducts, setMyProducts] = useState([]);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [updateProducts, setUpdateProducts] = useState(false);
+  // const [modalIsOpen, setIsOpen] = useState(false);
+  // const [updateProducts, setUpdateProducts] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchProducts = async () => {
-      const data = await dbData.getProductsBySalesboxId(boxId);
+      const data = await dbData.getProductsByFarmerId(farmerId);
       setProducts(data);
     };
 
     if (farmerId !== undefined) {
       fetchProducts();
     }
-  }, [farmerId, boxId, updateProducts]);
+  }, [farmerId]);
 
   useEffect(() => {
     // window.scrollTo(0, 0);
@@ -31,14 +29,14 @@ const Restock = ({ farmerId }) => {
     setMyProducts(mine.sort((x, y) => x.stock_quantity - y.stock_quantity));
   }, [products, farmerId]);
 
-  function handleModal() {
-    setIsOpen(!modalIsOpen);
-  }
+  // function handleModal() {
+  //   setIsOpen(!modalIsOpen);
+  // }
 
-  function addProductToState() {
-    setUpdateProducts(!updateProducts);
-    // setMyProducts((existingProducts) => [...existingProducts, product]);
-  }
+  // function addProductToState() {
+  //   setUpdateProducts(!updateProducts);
+  //   // setMyProducts((existingProducts) => [...existingProducts, product]);
+  // }
 
   function removeProductFromState(id) {
     setMyProducts(myProducts.filter((product) => product.id !== id));
@@ -54,26 +52,18 @@ const Restock = ({ farmerId }) => {
     setMyProducts(newArray);
   }
 
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = "#f00";
-  // }
-
   return (
     <div>
-      <div>
-        <button
-          className="button_round"
-          onClick={handleModal}
-          style={{ position: "relative", bottom: "0", right: "0" }}
-        >
+      <div>Restock all my products</div>
+      {/* <div> */}
+      {/* <button className="button_round" onClick={handleModal}>
           <img
             style={{ width: "2.5rem", height: "2.5rem" }}
             src={add}
             alt="product status icon"
           />
-        </button>
-        <Modal
+        </button> */}
+      {/* <Modal
           isOpen={modalIsOpen}
           ariaHideApp={false}
           contentLabel="Example Modal"
@@ -95,10 +85,10 @@ const Restock = ({ farmerId }) => {
             handleModal={() => handleModal()}
             addProductToState={addProductToState}
             farmerId={farmerId}
-            boxId={boxId}
+            // boxId={boxId}
           />
-        </Modal>
-      </div>
+        </Modal> */}
+      {/* </div> */}
       <div>
         {myProducts.map((product) => (
           <ModifyProductCard
@@ -109,8 +99,6 @@ const Restock = ({ farmerId }) => {
             low_stock_definition={product.low_stock_definition}
             inStock={product.inStock}
             unit_value={product.unit_value}
-            farmerId={farmerId}
-            boxId={boxId}
             removeProductFromState={removeProductFromState}
             updateProductToState={updateProductToState}
           />
@@ -120,4 +108,4 @@ const Restock = ({ farmerId }) => {
   );
 };
 
-export default Restock;
+export default RestockAllProducts;

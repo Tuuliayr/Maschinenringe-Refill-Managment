@@ -1,0 +1,23 @@
+.box-card {
+  margin: $space-s;
+  padding: $space-xs;
+  background-color: clr(text-inverse);
+  text-align: left;
+  border-radius: $radius-primary;
+  box-shadow: $box-shadow-primary;
+
+  &__title {
+    margin: 0;
+    font-size: $h3-font-size;
+  }
+
+  &__address {
+    margin: 0;
+    font-size: $font-14;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: clr(text);
+}

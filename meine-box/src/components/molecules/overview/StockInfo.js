@@ -17,9 +17,7 @@ const StockInfo = ({stock_quantity, low_stock_definition}) => {
     }
   }, [low_stock_definition, stock_quantity])
   return (
-    <div>
-      <div className={`stock_info stock_info--${color}`}>{inStock}</div>
-    </div>
+    <div className={`stock-info stock-info--${color}`}>{inStock}</div>
   );
 };
 

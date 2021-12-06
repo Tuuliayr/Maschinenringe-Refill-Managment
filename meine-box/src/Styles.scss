@@ -4,23 +4,32 @@
 // Base
 @import "components/base/_colors";
 @import "components/base/_variables";
-@import "components/base/buttons/_button";
-@import "components/base/buttons/_addbutton";
-
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/_breakpoint";
 @import "components/base/_breakpoints";
 @import "components/base/_mixins";
+@import "components/base/buttons/_button";
+@import "components/base/buttons/_addbutton";
+@import "components/base/salesbox-card/_salesbox-card";
+@import "components/base/box-product-card/_box-product-card";
 
 // Molecules
+@import "components/molecules/overview/_product-cards";
 @import "components/molecules/overview/_productsoverview";
 @import "components/molecules/restock/_restock";
+@import "components/molecules/myboxes/_my-boxes";
+@import "components/molecules/restock/_modify-product-card";
 
 // Organisms
 @import "components/organisms/authenticator-components/_authenticator-components";
 @import "components/organisms/authentication/_authentication";
 @import "@aws-amplify/ui-react/styles.css";
+@import "components/organisms/navigation/_navigation";
+@import "components/organisms/settings/_settings";
 
-// React original styles
+// Pages
+@import "components/pages/_main";
+
+// Root styles
 @import "App";
 @import "Amplify";
