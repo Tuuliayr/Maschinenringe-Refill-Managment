@@ -10,7 +10,7 @@ const AddNewProduct = (props) => {
 
   async function handleSubmit() {
     try {
-      const testProduct = await dbData.addNewProduct(
+      const newProduct = await dbData.addNewProduct(
         newProductName,
         price,
         unitValue,
@@ -20,17 +20,15 @@ const AddNewProduct = (props) => {
         props.farmerId,
         props.boxId
       );
-      const productObj = {
-        id: Date.now(),
-        name: newProductName,
-        price_per_unit: price,
-        stock_quantity: stockQty,
-        low_stock_definition: lowStockDef,
-        unit_value: unitValue,
-      };
-      console.log(testProduct);
+      // const productObj = {
+      //   name: newProductName,
+      //   price_per_unit: price,
+      //   stock_quantity: stockQty,
+      //   low_stock_definition: lowStockDef,
+      //   unit_value: unitValue,
+      // };
       props.handleModal();
-      props.addProductToState(productObj);
+      props.addProductToState();
     } catch (e) {
       console.log(e);
     }
