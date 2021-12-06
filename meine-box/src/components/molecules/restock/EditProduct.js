@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
-const AddNewProduct = (props) => {
-  const [newProductName, setNewProductName] = useState("");
-  const [price, setPrice] = useState(undefined);
-  const [unitValue, setUnitValue] = useState("kg");
-  const [stockQty, setStockQty] = useState(undefined);
-  const [lowStockDef, setLowStockDef] = useState(undefined);
+const EditProduct = (props) => {
+  const [productName, setProductName] = useState(props.name);
+  const [price, setPrice] = useState(props.price);
+  const [unitValue, setUnitValue] = useState(props.unit_value);
+  const [stockQty, setStockQty] = useState(props.stock_quantity);
+  const [lowStockDef, setLowStockDef] = useState(props.low_stock_definition);
 
   async function handleSubmit() {
     try {
-      const newProduct = await dbData.addNewProduct(
-        newProductName,
+      const productToUpdate = await dbData.updateProduct(
+        props.product_id,
+        productName,
         price,
         unitValue,
         stockQty,
@@ -20,29 +21,31 @@ const AddNewProduct = (props) => {
         props.farmerId,
         props.boxId
       );
-      // const productObj = {
-      //   name: newProductName,
-      //   price_per_unit: price,
-      //   stock_quantity: stockQty,
-      //   low_stock_definition: lowStockDef,
-      //   unit_value: unitValue,
-      // };
+      const productObj = {
+        id: props.product_id,
+        name: productName,
+        price_per_unit: price,
+        stock_quantity: stockQty,
+        low_stock_definition: lowStockDef,
+        unit_value: unitValue,
+      };
       props.handleModal();
-      props.addProductToState();
+      props.updateProductToState(productObj);
     } catch (e) {
       console.log(e);
     }
   }
+
   return (
     <div className="form_new_product">
       <form>
         <div className="field">
-          <label>Add new product</label>
+          <label>Edit product</label>
           <input
             className="new_product_name"
             type="text"
-            placeholder="Product name"
-            onChange={(event) => setNewProductName(event.target.value)}
+            placeholder={productName}
+            onChange={(event) => setProductName(event.target.value)}
           />
           <div
             className="field_units"
@@ -51,13 +54,13 @@ const AddNewProduct = (props) => {
             <input
               type="text"
               pattern="[0-9]*"
-              placeholder="Quantity"
+              placeholder={stockQty}
               style={{ display: "inline-block" }}
               onChange={(event) => setStockQty(event.target.value)}
             />
             <select
               className="dropdown_units"
-              defaultValue="kg"
+              defaultValue={unitValue}
               style={{ display: "inline-block" }}
               onChange={(event) => setUnitValue(event.target.value)}
             >
@@ -65,10 +68,11 @@ const AddNewProduct = (props) => {
               <option value="pcs">pcs</option>
             </select>
             <div>
+              <div>Low stock definition</div>
               <input
                 type="text"
                 pattern="[0-9]*"
-                placeholder="Low stock def"
+                placeholder={lowStockDef}
                 onChange={(event) => setLowStockDef(event.target.value)}
               />
             </div>
@@ -80,7 +84,7 @@ const AddNewProduct = (props) => {
             <input
               type="text"
               pattern="[0-9]*"
-              placeholder="Price"
+              placeholder={price}
               style={{ display: "inline-block" }}
               onChange={(event) => setPrice(event.target.value)}
             />
@@ -90,11 +94,11 @@ const AddNewProduct = (props) => {
       </form>
       <div style={{ margin: "2rem 0 1rem 0" }}>
         <button className="button" onClick={handleSubmit}>
-          save
+          save changes
         </button>
       </div>
     </div>
   );
 };
 
-export default AddNewProduct;
+export default EditProduct;
