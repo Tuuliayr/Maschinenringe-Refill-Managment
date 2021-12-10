@@ -3,7 +3,6 @@ import Restock from "../molecules/restock/Restock";
 import MyBoxes from "../molecules/myboxes/MyBoxes";
 import ProductsOverview from "../molecules/overview/ProductsOverview";
 import Settings from "../organisms/settings/Settings";
-import RestockAllProducts from "../molecules/restock/RestockAllProducts";
 import Map from "../organisms/maps/Map";
 
 function Main({ farmerId, signOut }) {
@@ -14,10 +13,6 @@ function Main({ farmerId, signOut }) {
         <Route
           path="/productsoverview/:boxId"
           element={<ProductsOverview farmerId={farmerId} />}
-        />
-        <Route
-          path="/restock"
-          element={<RestockAllProducts farmerId={farmerId} />}
         />
         <Route
           path="/restock/:boxId"

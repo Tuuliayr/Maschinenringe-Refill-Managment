@@ -62,35 +62,43 @@ const Restock = ({ farmerId }) => {
   return (
     <div>
       <div>
-        <button
-          className="button_round"
-          onClick={handleModal}
-          style={{ position: "relative", bottom: "0", right: "0" }}
+        <div
+          style={{
+            marginBottom: "4rem",
+          }}
         >
-          <img
-            style={{ width: "2.5rem", height: "2.5rem" }}
-            src={add}
-            alt="product status icon"
-          />
-        </button>
+          <button
+            className="button_round"
+            onClick={handleModal}
+            style={{ position: "absolute", top: "0.5rem", right: "0.5rem" }}
+          >
+            <img
+              style={{ width: "2.5rem", height: "2.5rem" }}
+              src={add}
+              alt="add icon"
+            />
+          </button>
+        </div>
         <Modal
           isOpen={modalIsOpen}
           ariaHideApp={false}
-          contentLabel="Example Modal"
+          contentLabel="Add new product"
         >
-          <button
-            className="button_secondary"
-            style={{
-              backgroundColor: "#fa4359",
-              margin: "2rem 2rem 0 0",
-              position: "absolute",
-              top: "0",
-              right: "0",
-            }}
-            onClick={handleModal}
-          >
-            cancel
-          </button>
+          <div style={{ margin: "5rem" }}>
+            <button
+              className="button_secondary"
+              style={{
+                backgroundColor: "#fa4359",
+                margin: "2rem 2rem 0 0",
+                position: "absolute",
+                top: "0",
+                right: "0",
+              }}
+              onClick={handleModal}
+            >
+              cancel
+            </button>
+          </div>
           <AddNewProduct
             handleModal={() => handleModal()}
             addProductToState={addProductToState}

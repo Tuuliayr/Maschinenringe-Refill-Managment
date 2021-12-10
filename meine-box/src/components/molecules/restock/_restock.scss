@@ -1,6 +1,5 @@
 .form_card,
-.form_new_product {
-  //   width: 20rem;
+.form_product {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +18,7 @@
   margin: 0 0 0.5vh 1.5vh;
 }
 
-.form_new_product label {
+.form_product label {
   display: block;
   font-family: $font-body;
   font-size: $font-24;
@@ -32,11 +31,9 @@
 textarea {
   width: 4rem;
   display: block;
-  //width: 100%;
   padding: 0.5rem 0.8rem 0.5rem 0.8rem;
   margin: 0.9vw 0;
   margin-right: $space-xs;
-  //border: 0;
   border-radius: 5px;
   font-size: $font-16;
 }
@@ -54,16 +51,14 @@ textarea {
   font-size: $font-16;
 }
 
-.form_new_product {
-  height: 88%;
+.form_product {
+  // height: 88%;
   background-color: clr(background-gray);
-  display: flex;
   flex-direction: column;
 }
 
 .dropdown_units {
   background: clr(primary);
-  // box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: $radius-primary;
   padding: 0.9rem 1.1rem;

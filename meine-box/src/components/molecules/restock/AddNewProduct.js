@@ -34,7 +34,7 @@ const AddNewProduct = (props) => {
     }
   }
   return (
-    <div className="form_new_product">
+    <div className="form_product">
       <form>
         <div className="field">
           <label>Add new product</label>
@@ -62,6 +62,7 @@ const AddNewProduct = (props) => {
               onChange={(event) => setUnitValue(event.target.value)}
             >
               <option value="kg">kg</option>
+              <option value="g">g</option>
               <option value="pcs">pcs</option>
             </select>
             <div>
