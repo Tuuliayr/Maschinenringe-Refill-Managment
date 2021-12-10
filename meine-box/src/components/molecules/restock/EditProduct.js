@@ -37,7 +37,7 @@ const EditProduct = (props) => {
   }
 
   return (
-    <div className="form_new_product">
+    <div className="form_product">
       <form>
         <div className="field">
           <label>Edit product</label>
