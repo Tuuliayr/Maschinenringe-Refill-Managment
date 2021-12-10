@@ -1,5 +1,5 @@
 .form_card,
-.form_new_product {
+.form_product {
   //   width: 20rem;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
   margin: 0 0 0.5vh 1.5vh;
 }
 
-.form_new_product label {
+.form_product label {
   display: block;
   font-family: $font-body;
   font-size: $font-24;
@@ -54,10 +54,10 @@ textarea {
   font-size: $font-16;
 }
 
-.form_new_product {
-  height: 88%;
+.form_product {
+  // height: 88%;
   background-color: clr(background-gray);
-  display: flex;
+  // display: flex;
   flex-direction: column;
 }
 
