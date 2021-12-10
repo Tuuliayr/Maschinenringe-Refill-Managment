@@ -69,19 +69,21 @@ const ModifyProductCard = (props) => {
           ariaHideApp={false}
           contentLabel="Example Modal"
         >
-          <button
-            className="button_secondary"
-            style={{
-              backgroundColor: "#fa4359",
-              margin: "2rem 2rem 0 0",
-              position: "absolute",
-              top: "0",
-              right: "0",
-            }}
-            onClick={handleModal}
-          >
-            cancel
-          </button>
+          <div style={{ margin: "5rem" }}>
+            <button
+              className="button_secondary"
+              style={{
+                backgroundColor: "#fa4359",
+                margin: "2rem 2rem 0 0",
+                position: "absolute",
+                top: "0",
+                right: "0",
+              }}
+              onClick={handleModal}
+            >
+              cancel
+            </button>
+          </div>
           <EditProduct
             product_id={props.product_id}
             name={props.name}
