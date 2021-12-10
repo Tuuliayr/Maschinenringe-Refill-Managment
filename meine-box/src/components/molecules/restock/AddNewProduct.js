@@ -62,6 +62,7 @@ const AddNewProduct = (props) => {
               onChange={(event) => setUnitValue(event.target.value)}
             >
               <option value="kg">kg</option>
+              <option value="g">g</option>
               <option value="pcs">pcs</option>
             </select>
             <div>
