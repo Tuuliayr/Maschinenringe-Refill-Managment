@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
-import { createMap } from "maplibre-gl-js-amplify";
+import { createMap, drawPoints } from "maplibre-gl-js-amplify";
+
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const Map = () => {
@@ -13,10 +14,34 @@ const Map = () => {
       if (mapRef.current != null) {
         map = await createMap({
           container: mapRef.current,
-          center: [-122.431297, 37.773972],
+          center: [11.5820, 48.1351],
           zoom: 11,
         });
       }
+      map.on("load", function () {
+        drawPoints("mySourceName", // Arbitrary source name
+            [
+                {
+                  coordinates: [11.66188771148024, 48.08986952522042], // [Longitude, Latitude]
+                  title: "Golden Gate Bridge",
+                  address: "A suspension bridge spanning the Golden Gate",
+                },
+                // {
+                //   coordinates: [11.66188771148024, 48.08986952522042], // [Longitude, Latitude]
+                // },
+            ], // An array of coordinate data, an array of Feature data, or an array of [NamedLocations](https://github.com/aws-amplify/maplibre-gl-js-amplify/blob/main/src/types.ts#L8)
+            map,
+            {
+                showCluster: true,
+                unclusteredOptions: {
+                    showMarkerPopup: true,
+                },
+                clusterOptions: {
+                    showCount: true,
+                },
+            }
+        );
+    });
     }
     initializeMap();
 
@@ -27,7 +52,6 @@ const Map = () => {
   }, []);
 
   return (
-
       <div ref={mapRef} id="map" />
   );
 }
