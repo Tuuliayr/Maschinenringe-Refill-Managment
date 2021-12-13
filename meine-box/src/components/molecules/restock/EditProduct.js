@@ -1,34 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { getNumberFormatSettings } from "react-native-localize";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
-const AddNewProduct = (props) => {
-  const [newProductName, setNewProductName] = useState("");
-  const [price, setPrice] = useState(undefined);
-  const [unitValue, setUnitValue] = useState("kg");
-  const [stockQty, setStockQty] = useState(undefined);
-  const [lowStockDef, setLowStockDef] = useState(undefined);
-  const [selectedBoxId, setSelectedBoxId] = useState(props.boxId);
-  const [boxListIsShown, setIsShown] = useState(true);
+const EditProduct = (props) => {
+  const [productName, setProductName] = useState(props.name);
+  const [price, setPrice] = useState(props.price);
+  const [unitValue, setUnitValue] = useState(props.unit_value);
+  const [stockQty, setStockQty] = useState(props.stock_quantity);
+  const [lowStockDef, setLowStockDef] = useState(props.low_stock_definition);
 
-  useEffect(() => {
-    if (props.boxIds !== undefined) {
-      var select = document.getElementById("selectNumber");
-      var options = props.boxIds;
-
-      for (var i = 0; i < options.length; i++) {
-        var opt = options[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        select.appendChild(el);
-      }
-    } else {
-      hideComponent();
-    }
-  }, []);
-
-  // replace decimal comma with decimal point
   function parseLocaleNumber(stringNumber) {
     const { decimalSeparator, groupingSeparator } = getNumberFormatSettings();
 
@@ -39,57 +19,44 @@ const AddNewProduct = (props) => {
     );
   }
 
-  function hideComponent() {
-    setIsShown(!boxListIsShown);
-  }
-
   async function handleSubmit() {
     try {
-      const newProduct = await dbData.addNewProduct(
-        newProductName,
+      const productToUpdate = await dbData.updateProduct(
+        props.product_id,
+        productName,
         price,
         unitValue,
         stockQty,
         lowStockDef,
         "2021-12-22 00:00:00",
         props.farmerId,
-        selectedBoxId
+        props.boxId
       );
       const productObj = {
-        name: newProductName,
+        id: props.product_id,
+        name: productName,
         price_per_unit: price,
         stock_quantity: stockQty,
         low_stock_definition: lowStockDef,
         unit_value: unitValue,
       };
-      props.addProductToState(productObj);
-      props.toggleModal();
+      props.handleModal();
+      props.updateProductToState(productObj);
     } catch (e) {
       console.log(e);
     }
   }
+
   return (
     <div className="form-product">
       <form>
         <div>
-          <label>Add new product</label>
-          {boxListIsShown && (
-            <div>
-              <select
-                id="selectNumber"
-                className="form-product__dropdown"
-                defaultValue={props.boxId}
-                onChange={(event) => setSelectedBoxId(event.target.value)}
-              >
-                <option>Select box</option>
-              </select>
-            </div>
-          )}
+          <label>Edit product</label>
           <input
             className="form-product__product-name"
             type="text"
-            placeholder="Product name"
-            onChange={(event) => setNewProductName(event.target.value)}
+            placeholder={productName}
+            onChange={(event) => setProductName(event.target.value)}
           />
           <div
             className="field_units"
@@ -98,7 +65,7 @@ const AddNewProduct = (props) => {
             <input
               type="text"
               pattern="[0-9]*"
-              placeholder="0"
+              placeholder={stockQty}
               style={{ display: "inline-block" }}
               onChange={(event) =>
                 setStockQty(parseLocaleNumber(event.target.value))
@@ -106,7 +73,7 @@ const AddNewProduct = (props) => {
             />
             <select
               className="form-product__dropdown"
-              defaultValue="kg"
+              defaultValue={unitValue}
               style={{ display: "inline-block" }}
               onChange={(event) => setUnitValue(event.target.value)}
             >
@@ -119,7 +86,7 @@ const AddNewProduct = (props) => {
               <input
                 type="text"
                 pattern="[0-9]*"
-                placeholder="0"
+                placeholder={lowStockDef}
                 onChange={(event) =>
                   setLowStockDef(parseLocaleNumber(event.target.value))
                 }
@@ -134,7 +101,7 @@ const AddNewProduct = (props) => {
             <input
               type="text"
               pattern="[0-9]*"
-              placeholder="0.0"
+              placeholder={price}
               style={{ display: "inline-block" }}
               onChange={(event) =>
                 setPrice(parseLocaleNumber(event.target.value))
@@ -146,11 +113,11 @@ const AddNewProduct = (props) => {
       </form>
       <div style={{ margin: "2rem 0 1rem 0" }}>
         <button className="button_primary" onClick={handleSubmit}>
-          save
+          save changes
         </button>
       </div>
     </div>
   );
 };
 
-export default AddNewProduct;
+export default EditProduct;

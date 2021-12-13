@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink , useLocation} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import {ReactComponent as Home} from "../../../images/icons/store-alt-solid.svg";
 import {ReactComponent as Menu} from "../../../images/icons/bars-solid.svg";
 import {ReactComponent as Restock} from "../../../images/icons/box-open-solid.svg";
 import {ReactComponent as Map} from "../../../images/icons/map-marked-alt-solid.svg";
 
-const Navigation = () =>  {
+const Navigation = () => {
   const [location, setLocation] = useState();
   const [home, setHome] = useState("");
   const [settings, setSettings] = useState("");
@@ -17,11 +17,11 @@ const Navigation = () =>  {
   const loc = useLocation();
 
   useEffect(() => {
-    setLocation(loc.pathname)
+    setLocation(loc.pathname);
   }, [loc.pathname]);
 
   useEffect(() => {
-    if(location === "/") {
+    if (location === "/") {
       setHome("open");
       setSettings("");
       setRestock("");
@@ -63,6 +63,6 @@ const Navigation = () =>  {
       
     </div>
   );
-}
+};
 
 export default Navigation;
