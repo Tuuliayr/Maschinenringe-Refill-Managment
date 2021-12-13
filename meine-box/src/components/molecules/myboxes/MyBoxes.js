@@ -104,7 +104,6 @@ const MyBoxes = ({ farmerId }) => {
         <AddNewProductModal
           isOpen={modalIsOpen}
           toggleModal={toggleModal}
-          // toggle={toggleModal}
           addProductToState={addProductToState}
           farmerId={farmerId}
           boxIds={boxIds}
