@@ -180,3 +180,8 @@ export const getSalesboxdata = async (salesboxId) => {
   );
   return salesbox.data.getSalesbox;
 };
+
+export const getSalesBoxes = async () => {
+  const salesboxes = await API.graphql(graphqlOperation(queries.listSalesboxs));
+  return salesboxes.data.listSalesboxs;
+};
