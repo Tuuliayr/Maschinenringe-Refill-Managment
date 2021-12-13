@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../base/buttons/ButtonBase";
 import NotificationCard from "../../base/notification-card/NotificationCard";
 
@@ -13,7 +13,7 @@ const ExpertNotification = () => {
   return (
     <div>
       <Button
-        className={`button button__notification-add`}
+        className={`button_primary button_primary__notification-add`}
         onClick={() => setActive("all")}
       >
         Add new notification
