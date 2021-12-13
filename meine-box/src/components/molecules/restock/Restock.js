@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Modal from "react-modal";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
-import AddNewProduct from "./AddNewProduct";
+import AddNewProductModal from "./AddNewProduct__Modal";
 import ModifyProductCard from "./ModifyProductCard.js";
 import add from "../../../images/mr-svg-icons/add-icon.svg";
 
@@ -26,18 +25,16 @@ const Restock = ({ farmerId }) => {
   }, [farmerId, boxId, updateProducts]);
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
     const mine = products.filter((product) => product.farmer_id === farmerId);
     setMyProducts(mine.sort((x, y) => x.stock_quantity - y.stock_quantity));
   }, [products, farmerId]);
 
-  function handleModal() {
+  function toggleModal() {
     setIsOpen(!modalIsOpen);
   }
 
   function addProductToState() {
     setUpdateProducts(!updateProducts);
-    // setMyProducts((existingProducts) => [...existingProducts, product]);
   }
 
   function removeProductFromState(id) {
@@ -54,22 +51,18 @@ const Restock = ({ farmerId }) => {
     setMyProducts(newArray);
   }
 
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = "#f00";
-  // }
-
   return (
     <div>
       <div>
         <div
           style={{
             marginBottom: "4rem",
+            height: "100%",
           }}
         >
           <button
             className="button_round"
-            onClick={handleModal}
+            onClick={toggleModal}
             style={{ position: "absolute", top: "0.5rem", right: "0.5rem" }}
           >
             <img
@@ -79,33 +72,13 @@ const Restock = ({ farmerId }) => {
             />
           </button>
         </div>
-        <Modal
+        <AddNewProductModal
           isOpen={modalIsOpen}
-          ariaHideApp={false}
-          contentLabel="Add new product"
-        >
-          <div style={{ margin: "5rem" }}>
-            <button
-              className="button_secondary"
-              style={{
-                backgroundColor: "#fa4359",
-                margin: "2rem 2rem 0 0",
-                position: "absolute",
-                top: "0",
-                right: "0",
-              }}
-              onClick={handleModal}
-            >
-              cancel
-            </button>
-          </div>
-          <AddNewProduct
-            handleModal={() => handleModal()}
-            addProductToState={addProductToState}
-            farmerId={farmerId}
-            boxId={boxId}
-          />
-        </Modal>
+          toggleModal={toggleModal}
+          addProductToState={addProductToState}
+          farmerId={farmerId}
+          boxId={boxId}
+        />
       </div>
       <div>
         {myProducts.map((product) => (
