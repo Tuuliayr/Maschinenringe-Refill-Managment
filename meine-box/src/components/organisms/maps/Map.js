@@ -1,10 +1,14 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { createMap, drawPoints } from "maplibre-gl-js-amplify";
+import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
+
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
-const Map = () => {
+const Map = ({farmerId}) => {
   const mapRef = useRef(null); // Reference to the map DOM element
+  const [boxes, setBoxes] = useState([]);
+
 
   // Wrapping our code in a useEffect allows us to run initializeMap after the div has been rendered into the DOM
   useEffect(() => {
