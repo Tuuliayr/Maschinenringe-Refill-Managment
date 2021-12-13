@@ -1,6 +1,6 @@
-.form_card,
-.form_product {
+.form-product {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -8,17 +8,31 @@
   margin-top: $space-s;
   text-align: left;
   border-radius: $radius-primary;
-  background-color: clr(button-primary);
+
+  &__product-name {
+    width: 11rem;
+    display: block;
+    padding: $space-xs 0.8rem $space-xs 0.8rem;
+    margin: $space-s 0;
+    border-radius: 5px;
+    font-size: $font-16;
+    text-transform: capitalize;
+  }
+
+  &__dropdown {
+    background: clr(primary);
+    border: none;
+    border-radius: $radius-primary;
+    padding: 0.9rem 1.1rem;
+
+    color: clr(text-inverse);
+    font-family: $font-heading;
+    font-style: normal;
+    font-weight: bold;
+  }
 }
 
-.form_card label {
-  display: block;
-  font-size: $font-20;
-  text-align: left;
-  margin: 0 0 0.5vh 1.5vh;
-}
-
-.form_product label {
+.form-product label {
   display: block;
   font-family: $font-body;
   font-size: $font-24;
@@ -27,66 +41,15 @@
   margin: 0 0 2.5vh 0;
 }
 
-.form_card input,
-textarea {
-  width: 4rem;
-  display: block;
-  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-  margin: 0.9vw 0;
-  margin-right: $space-xs;
-  border-radius: 5px;
-  font-size: $font-16;
-}
-
 .field_units input,
 textarea,
 .field_price input,
 textarea {
   width: 6rem;
   display: block;
-  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  padding: $space-xs 0.8rem $space-xs 0.8rem;
   margin: 0.9vw 0;
   margin-right: $space-xs;
   border-radius: 5px;
   font-size: $font-16;
 }
-
-.form_product {
-  // height: 88%;
-  background-color: clr(background-gray);
-  flex-direction: column;
-}
-
-.dropdown_units {
-  background: clr(primary);
-  border: none;
-  border-radius: $radius-primary;
-  padding: 0.9rem 1.1rem;
-
-  color: #f6f5f5;
-  font-family: $font-heading;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.new_product_name,
-.field_expiration_date input {
-  width: 11rem;
-  display: block;
-  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-  margin: 0.9vw 0;
-  margin-right: $space-xs;
-  border-radius: 5px;
-  font-size: $font-16;
-}
-
-// .field_units,
-// .field_price {
-//   overflow: hidden;
-//   white-space: nowrap;
-// }
-
-// input,
-// select {
-//   display: inline-block;
-// }
