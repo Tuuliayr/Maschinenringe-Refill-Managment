@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../base/buttons/ButtonBase";
 import NotificationCard from "../../base/notification-card/NotificationCard";
 
