@@ -27,8 +27,6 @@ const ModifyProductCard = (props) => {
   async function handleDelete() {
     try {
       const productToDelete = await dbData.deleteProduct(props.product_id);
-      console.log(props.product_id);
-      console.log(props.name);
       props.removeProductFromState(props.product_id);
     } catch (e) {
       console.log(e);
@@ -70,32 +68,23 @@ const ModifyProductCard = (props) => {
           contentLabel="Example Modal"
         >
           <div style={{ margin: "5rem" }}>
-            <button
-              className="button_secondary"
-              style={{
-                backgroundColor: "#fa4359",
-                margin: "2rem 2rem 0 0",
-                position: "absolute",
-                top: "0",
-                right: "0",
-              }}
-              onClick={handleModal}
-            >
+            <button className="button_secondary" onClick={handleModal}>
               cancel
             </button>
+
+            <EditProduct
+              product_id={props.product_id}
+              name={props.name}
+              price={props.price}
+              stock_quantity={props.stock_quantity}
+              low_stock_definition={props.low_stock_definition}
+              unit_value={props.unit_value}
+              farmerId={props.farmerId}
+              boxId={props.boxId}
+              handleModal={() => handleModal()}
+              updateProductToState={props.updateProductToState}
+            />
           </div>
-          <EditProduct
-            product_id={props.product_id}
-            name={props.name}
-            price={props.price}
-            stock_quantity={props.stock_quantity}
-            low_stock_definition={props.low_stock_definition}
-            unit_value={props.unit_value}
-            farmerId={props.farmerId}
-            boxId={props.boxId}
-            handleModal={() => handleModal()}
-            updateProductToState={props.updateProductToState}
-          />
         </Modal>
       </div>
       <div>

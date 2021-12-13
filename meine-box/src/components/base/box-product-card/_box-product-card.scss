@@ -8,11 +8,15 @@
 
   &__title {
     display: flex;
-    
   }
+
   &__icon {
     padding-right: $space-xs;
     height: $icon-xs;
     width: $icon-xs;
+  }
+
+  &__name {
+    text-transform: capitalize;
   }
 }
