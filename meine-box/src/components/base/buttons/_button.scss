@@ -2,12 +2,17 @@
 
 .button_secondary {
   background: $color-red;
-  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 $space-xxs $space-xxs rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: $radius-primary;
   padding: 0.9rem 1.1rem;
 
-  color: #f6f5f5;
+  margin: $space-l $space-l 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: clr(text-inverse);
   cursor: pointer;
   font-family: $font-body;
   font-style: normal;
@@ -15,18 +20,17 @@
   font-size: $font-16;
   line-height: $space-s;
   letter-spacing: 0.05rem;
-  //text-transform: uppercase;
 }
 
-.button {
+.button_primary {
   background: clr(primary);
-  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 $space-xxs $space-xxs rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: $radius-primary;
   padding: $space-s;
   margin: $space-xs;
 
-  color: #f6f5f5;
+  color: clr(text-inverse);
   cursor: pointer;
   font-family: $font-body;
   font-style: normal;
@@ -84,6 +88,7 @@
   }
 }
 
-.button:hover {
+.button_primary:hover,
+.button_secondary:hover {
   transform: scale(1.1);
 }

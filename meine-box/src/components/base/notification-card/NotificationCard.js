@@ -10,36 +10,36 @@ const NotificationCard = ({ notification }) => {
           <p>Time: {notification.time}</p>
         </div>
         <div className="notificationcard__column2">
-          <Button className="button button__bg-white button__removebutton">
+          <Button className="button_primary button_primary__bg-white button_primary__removebutton">
             <Remove className="icon-xs"></Remove>
           </Button>
         </div>
       </div>
       <div className="notificationcard__column3">
         <Button
-          className={`button button__notification-expert ${
+          className={`button_primary button_primary__notification-expert ${
             notification.notifyOf === "all"
-              ? "button__bg-black"
-              : "button__bg-white"
+              ? "button_primary__bg-black"
+              : "button_primary__bg-white"
           } `}
         >
           All <br />
           Items
         </Button>
         <Button
-          className={`button button__notification-expert ${
+          className={`button_primary button_primary__notification-expert ${
             notification.notifyOf === "critical"
-              ? "button__bg-black"
-              : "button__bg-white"
+              ? "button_primary__bg-black"
+              : "button_primary__bg-white"
           } `}
         >
           Critical Stock
         </Button>
         <Button
-          className={`button button__notification-expert ${
+          className={`button_primary button_primary__notification-expert ${
             notification.notifyOf === "out"
-              ? "button__bg-black"
-              : "button__bg-white"
+              ? "button_primary__bg-black"
+              : "button_primary__bg-white"
           } `}
         >
           Out of Stock

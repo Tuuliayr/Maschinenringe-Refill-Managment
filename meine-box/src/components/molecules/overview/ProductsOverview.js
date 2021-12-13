@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import ProductCard from "./ProductCards.js";
-import Button from "../../base/buttons/ButtonBase";
 // Import for getting/modifying data from database
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
@@ -37,7 +36,7 @@ const ProductsOverview = ({ farmerId }) => {
       <div className="products-overview__header">
         <h1 className="products-overview__title">Box {boxId}</h1>
         <NavLink to={`/restock/${boxId}`}>
-          <Button>Restock</Button>
+          <button className="button_primary">Restock</button>
         </NavLink>
       </div>
 

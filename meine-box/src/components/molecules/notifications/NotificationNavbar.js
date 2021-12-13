@@ -17,16 +17,16 @@ const NotificationNavbar = ({ handleChange }) => {
   return (
     <div className="notification">
       <Button
-        className={`button button__notification-button ${
-          expert ? "button__bg-white" : "button__bg-black"
+        className={`button_primary button_primary__notification-button ${
+          expert ? "button_primary__bg-white" : "button_primary__bg-black"
         } `}
         onClick={() => changeView("simple")}
       >
         Simple
       </Button>
       <Button
-        className={`button button__notification-button ${
-          expert ? "button__bg-black" : "button__bg-white"
+        className={`button_primary button_primary__notification-button ${
+          expert ? "button_primary__bg-black" : "button_primary__bg-white"
         } `}
         onClick={() => changeView("expert")}
       >
