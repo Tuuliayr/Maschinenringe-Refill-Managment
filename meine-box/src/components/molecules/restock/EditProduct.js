@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getNumberFormatSettings } from "react-native-localize";
 import * as dbData from "../../organisms/databaseconnection/DatabaseConnection";
 
 const EditProduct = (props) => {
@@ -7,6 +8,16 @@ const EditProduct = (props) => {
   const [unitValue, setUnitValue] = useState(props.unit_value);
   const [stockQty, setStockQty] = useState(props.stock_quantity);
   const [lowStockDef, setLowStockDef] = useState(props.low_stock_definition);
+
+  function parseLocaleNumber(stringNumber) {
+    const { decimalSeparator, groupingSeparator } = getNumberFormatSettings();
+
+    return Number(
+      stringNumber
+        .replace(new RegExp(`\\${groupingSeparator}`, "g"), "")
+        .replace(new RegExp(`\\${decimalSeparator}`), ".")
+    );
+  }
 
   async function handleSubmit() {
     try {
@@ -37,12 +48,12 @@ const EditProduct = (props) => {
   }
 
   return (
-    <div className="form_product">
+    <div className="form-product">
       <form>
-        <div className="field">
+        <div>
           <label>Edit product</label>
           <input
-            className="new_product_name"
+            className="form-product__product-name"
             type="text"
             placeholder={productName}
             onChange={(event) => setProductName(event.target.value)}
@@ -56,10 +67,12 @@ const EditProduct = (props) => {
               pattern="[0-9]*"
               placeholder={stockQty}
               style={{ display: "inline-block" }}
-              onChange={(event) => setStockQty(event.target.value)}
+              onChange={(event) =>
+                setStockQty(parseLocaleNumber(event.target.value))
+              }
             />
             <select
-              className="dropdown_units"
+              className="form-product__dropdown"
               defaultValue={unitValue}
               style={{ display: "inline-block" }}
               onChange={(event) => setUnitValue(event.target.value)}
@@ -74,7 +87,9 @@ const EditProduct = (props) => {
                 type="text"
                 pattern="[0-9]*"
                 placeholder={lowStockDef}
-                onChange={(event) => setLowStockDef(event.target.value)}
+                onChange={(event) =>
+                  setLowStockDef(parseLocaleNumber(event.target.value))
+                }
               />
             </div>
           </div>
@@ -82,19 +97,22 @@ const EditProduct = (props) => {
             className="field_price"
             style={{ overflow: "hidden", whiteSpace: "nowrap" }}
           >
+            <div>Price per unit</div>
             <input
               type="text"
               pattern="[0-9]*"
               placeholder={price}
               style={{ display: "inline-block" }}
-              onChange={(event) => setPrice(event.target.value)}
+              onChange={(event) =>
+                setPrice(parseLocaleNumber(event.target.value))
+              }
             />
             <label style={{ display: "inline-block" }}>€</label>
           </div>
         </div>
       </form>
       <div style={{ margin: "2rem 0 1rem 0" }}>
-        <button className="button" onClick={handleSubmit}>
+        <button className="button_primary" onClick={handleSubmit}>
           save changes
         </button>
       </div>
