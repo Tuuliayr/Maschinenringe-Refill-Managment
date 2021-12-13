@@ -13,7 +13,7 @@ const ExpertNotification = () => {
   return (
     <div>
       <Button
-        className={`button button__notification-add`}
+        className={`button_primary button_primary__notification-add`}
         onClick={() => setActive("all")}
       >
         Add new notification

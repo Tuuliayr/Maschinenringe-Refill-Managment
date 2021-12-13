@@ -9,8 +9,10 @@ const SimpleNotification = () => {
       <p>Notification will be sent at 3 AM daily.</p>
       <h3>Minimum criticality for Notification:</h3>
       <Button
-        className={`button button__notification-type ${
-          active === "all" ? "button__bg-black" : "button__bg-white"
+        className={`button_primary button_primary__notification-type ${
+          active === "all"
+            ? "button_primary__bg-black"
+            : "button_primary__bg-white"
         } `}
         onClick={() => setActive("all")}
       >
@@ -18,16 +20,20 @@ const SimpleNotification = () => {
         Items
       </Button>
       <Button
-        className={`button button__notification-type ${
-          active === "critical" ? "button__bg-black" : "button__bg-white"
+        className={`button_primary button_primary__notification-type ${
+          active === "critical"
+            ? "button_primary__bg-black"
+            : "button_primary__bg-white"
         } `}
         onClick={() => setActive("critical")}
       >
         Critical Stock
       </Button>
       <Button
-        className={`button button__notification-type ${
-          active === "out" ? "button__bg-black" : "button__bg-white"
+        className={`button_primary button_primary__notification-type ${
+          active === "out"
+            ? "button_primary__bg-black"
+            : "button_primary__bg-white"
         } `}
         onClick={() => setActive("out")}
       >
