@@ -11,6 +11,7 @@ const MyBoxes = ({ farmerId }) => {
   const [boxesData, setBoxesData] = useState([]);
   const [boxIds, setBoxIds] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [updateBoxes, setUpdateBoxes] = useState(false);
 
   // fetch all the products of the farmer
   useEffect(() => {
@@ -23,7 +24,7 @@ const MyBoxes = ({ farmerId }) => {
     if (farmerId !== undefined) {
       fetchProducts();
     }
-  }, [farmerId]);
+  }, [farmerId, updateBoxes]);
 
   // get all the different boxes and their ids
   useEffect(() => {
@@ -70,7 +71,7 @@ const MyBoxes = ({ farmerId }) => {
     if (boxesData.length === 0) {
       fetchBoxes();
     }
-  }, []);
+  });
 
   // get ids from all boxes
   useEffect(() => {
@@ -85,6 +86,7 @@ const MyBoxes = ({ farmerId }) => {
 
   function addProductToState(product) {
     setProductsInBoxes((existingProducts) => [...existingProducts, product]);
+    setUpdateBoxes(!updateBoxes);
   }
 
   return (
