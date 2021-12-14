@@ -19,7 +19,7 @@ function Main({ farmerId, signOut }) {
           element={<Restock farmerId={farmerId} />}
         />
         <Route path="/settings" element={<Settings signOut={signOut} />} />
-        <Route path="/maps" element={<Map />} />
+        <Route path="/maps" element={<Map farmerId={farmerId}/>} />
       </Routes>
     </div>
   );
