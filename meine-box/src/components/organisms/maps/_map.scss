@@ -12,3 +12,20 @@ body,
 #root { /* The ancestors of the map element */
   height: 100%;
 }
+
+.map-popup__title, .map-popup__street, .map-popup__stock{
+  margin: 0;
+}
+
+.map-popup__title {
+  margin-top: $space-xs;
+}
+
+.maplibregl-marker {
+  cursor: pointer;
+}
+
+.map-popup__link {
+  color: clr(primary);
+  text-underline-position: under;
+}
