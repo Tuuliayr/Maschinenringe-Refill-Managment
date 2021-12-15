@@ -26,10 +26,6 @@ const Navigation = () => {
       setSettings("open");
       setHome("");
       setMap("");
-    } else if (location === "/restock") {
-      setHome("");
-      setSettings("");
-      setMap("");
     } else if (location === "/maps") {
       setHome("");
       setSettings("");
