@@ -11,7 +11,6 @@ export const getOneFarmer = async (farmerId) => {
   const farmer = await API.graphql(
     graphqlOperation(queries.getFarmer, { id: farmerId })
   );
-  console.log(farmer.data.getFarmer);
   return farmer.data.getFarmer;
 };
 

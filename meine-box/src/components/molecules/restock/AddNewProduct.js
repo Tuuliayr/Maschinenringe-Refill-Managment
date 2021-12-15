@@ -29,7 +29,6 @@ const AddNewProduct = (props) => {
         low_stock_definition: lowStockDef,
         unit_value: unitValue,
       };
-      console.log(testProduct);
       props.handleModal();
       props.addProductToState(productObj);
     } catch (e) {
