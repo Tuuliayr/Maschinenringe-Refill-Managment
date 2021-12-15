@@ -49,5 +49,15 @@
       },
       "rdsInit": true
     }
+  },
+  "geo": {
+    "muasMap": {
+      "isDefault": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "VectorEsriStreets",
+      "pricingPlan": "RequestBasedUsage",
+      "accessType": "AuthorizedUsers"
+    }
   }
 }

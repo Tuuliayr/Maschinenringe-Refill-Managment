@@ -1,0 +1,31 @@
+#map { /* The id of the container you passed to createMap */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 92%;
+
+}
+
+html,
+body,
+#root { /* The ancestors of the map element */
+  height: 100%;
+}
+
+.map-popup__title, .map-popup__street, .map-popup__stock{
+  margin: 0;
+}
+
+.map-popup__title {
+  margin-top: $space-xs;
+}
+
+.maplibregl-marker {
+  cursor: pointer;
+}
+
+.map-popup__link {
+  color: clr(primary);
+  text-underline-position: under;
+}

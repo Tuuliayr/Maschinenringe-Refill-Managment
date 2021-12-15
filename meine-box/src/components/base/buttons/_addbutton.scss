@@ -1,18 +1,12 @@
 .button_round {
-  // display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
-  // position: fixed;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 12.5rem;
-  // margin-left: 83%;
-  // bottom: 1rem;
-  // position: relative;
-  // margin-top: 100%;
   text-align: center;
   color: #f6f5f5;
   cursor: pointer;

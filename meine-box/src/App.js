@@ -29,23 +29,25 @@ function App() {
   };
 
   return (
-    <Authenticator
-      components={authenticatorComponents}
-      loginMechanisms={["email"]}
-    >
-      {({ signOut, user }) => (
-        <div className="App">
-          <Authentication
-            user={user.username}
-            email={user.attributes.email}
-            farmers={farmers}
-            onHandleID={handleGetId}
-          />
-          <Main farmerId={id} signOut={signOut} />
-          <Navigation />
-        </div>
-      )}
-    </Authenticator>
+    <div style={{ backgroundColor: "whitesmoke" }}>
+      <Authenticator
+        components={authenticatorComponents}
+        loginMechanisms={["email"]}
+      >
+        {({ signOut, user }) => (
+          <div className="App">
+            <Authentication
+              user={user.username}
+              email={user.attributes.email}
+              farmers={farmers}
+              onHandleID={handleGetId}
+            />
+            <Main farmerId={id} signOut={signOut} />
+            <Navigation />
+          </div>
+        )}
+      </Authenticator>
+    </div>
   );
 }
 

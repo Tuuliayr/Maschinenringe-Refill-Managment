@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:clr(text-inverse);
+  background-color: clr(text-inverse);
   margin: $space-s $space-xs;
   padding: $space-xs;
   text-align: left;
@@ -17,6 +17,7 @@
 
   &__name {
     font-weight: bold;
+    text-transform: capitalize;
   }
 
   &__quantity {

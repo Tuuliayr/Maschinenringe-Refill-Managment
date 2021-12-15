@@ -12,14 +12,14 @@
 @import "components/base/buttons/_addbutton";
 @import "components/base/salesbox-card/_salesbox-card";
 @import "components/base/box-product-card/_box-product-card";
-
-
+@import "components/base/notification-card/_notificationcard";
 
 // Molecules
 @import "components/molecules/overview/_product-cards";
 @import "components/molecules/overview/_productsoverview";
 @import "components/molecules/restock/_restock";
 @import "components/molecules/myboxes/_my-boxes";
+@import "components/molecules/restock/_modify-product-card";
 
 // Organisms
 @import "components/organisms/authenticator-components/_authenticator-components";
@@ -27,6 +27,7 @@
 @import "@aws-amplify/ui-react/styles.css";
 @import "components/organisms/navigation/_navigation";
 @import "components/organisms/settings/_settings";
+@import "components/organisms/maps/_map";
 
 // Pages
 @import "components/pages/_main";
