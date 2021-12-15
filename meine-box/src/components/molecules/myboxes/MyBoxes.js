@@ -44,11 +44,7 @@ const MyBoxes = ({ farmerId }) => {
       });
       // arrange products in a box descending based on the stock level
       const arranged = productsInBox.sort(
-        (x, y) =>
-          // commented line wont work since if other product has bigger low stock definition
-          // the product that has 0 stock would be lover than the porduct with low stock
-          //x.stock_quantity - x.low_stock_definition) - (y.stock_quantity - y.low_stock_definition)
-          x.stock_quantity - y.stock_quantity
+        (x, y) => x.stock_quantity - y.stock_quantity
       );
       if (arranged.length > 3) {
         productsInBoxes.push(arranged.slice(0, 3));
@@ -58,7 +54,6 @@ const MyBoxes = ({ farmerId }) => {
     });
 
     setProductsInBoxes(productsInBoxes);
-    console.log(productsInBoxes);
   }, [boxes, products]);
 
   // fetch all boxes
@@ -66,7 +61,6 @@ const MyBoxes = ({ farmerId }) => {
     const fetchBoxes = async () => {
       const data = await dbData.getSalesBoxes();
       setBoxesData(data);
-      console.log(boxesData);
     };
     if (boxesData.length === 0) {
       fetchBoxes();
