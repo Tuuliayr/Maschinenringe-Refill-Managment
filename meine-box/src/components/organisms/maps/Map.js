@@ -65,9 +65,7 @@ const Map = ({ farmerId }) => {
       ];
       let markerColors = [];
       let popUps = [];
-      console.log(myBoxesId);
       boxes.forEach((box, key) => {
-        console.log(myBoxesId[key]);
         if (myBoxesId.some((e) => e.id === box.id && e.level === "low")) {
           markerColors.push({ color: "#FEDE00" });
           popUps.push(
