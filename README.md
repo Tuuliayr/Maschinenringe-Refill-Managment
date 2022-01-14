@@ -22,7 +22,7 @@ Other libraries include [react-router-dom](https://www.npmjs.com/package/react-r
 
 Styling of the product is made with CSS using SASS solutions. Breakpoints are used for the app adapt to the screen width but everything has been coded mobile first. 
 
-The database that we use is an [AWS serverless Aurora MySQL](https://aws.amazon.com/rds/aurora) relational database. Backend solution is built with [Amplify CLI](https://docs.amplify.aws/cli/) using the automatic GraphQL API creation tool that connects the serverless Aurora database to be used as a datasource by the app. The authentication functionality of Amplify stores data of registered users to [DynamoDB](https://aws.amazon.com/dynamodb/). 
+The database that we use is an [AWS serverless Aurora MySQL](https://aws.amazon.com/rds/aurora) relational database. Backend solution is built with [Amplify CLI](https://docs.amplify.aws/cli/) using the automatic [GraphQL API](https://aws.amazon.com/graphql/) creation tool that connects the serverless Aurora database to be used as a datasource by the app. The authentication functionality of Amplify stores data of registered users to [DynamoDB](https://aws.amazon.com/dynamodb/). 
 
 
 
