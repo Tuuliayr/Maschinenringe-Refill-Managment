@@ -1,4 +1,4 @@
-# Maschinenringe Refill Management
+# <img src="https://user-images.githubusercontent.com/70134583/149548858-1aaf6504-3d82-4180-9f85-bd7c01db84c0.png" alt="alt text" width="5%" height="5%"> Maschinenringe Refill Management
 
 ## About the project
 
