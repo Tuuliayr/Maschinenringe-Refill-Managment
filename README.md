@@ -38,7 +38,7 @@ Adding new products from inside the box. Another box number can't be selected he
 :-------------------------------------------------------------------------------------------:|:-------------------------------------------------------:
 <img src="https://user-images.githubusercontent.com/70134583/149537991-3b0f6bd5-091d-488a-8e2a-e8124cec3114.jpg" alt="alt text" width="65%" height="65%"> | <img src="https://user-images.githubusercontent.com/70134583/149538026-07fbecfb-d070-4bba-b226-8e539059abb1.jpg" alt="alt text" width="65%" height="65%">
 
-Map view shows the locations of the boxes.               |    The farmer can click the location pins to get information.                                    
+Map view shows the locations of the boxes.               |    The farmer can click the location pins to get information                                    
 :-------------------------------------------------------:|:-------------------------------------------------------:
 <img src="https://user-images.githubusercontent.com/70134583/149538081-0ae6d8cd-0699-442a-84b1-5434febb3742.jpg" alt="alt text" width="65%" height="65%"> | <img src="https://user-images.githubusercontent.com/70134583/149538093-5348b6b7-a3fa-401f-bf53-a7d397e29e9e.jpg" alt="alt text" width="65%" height="65%">
 
