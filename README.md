@@ -2,7 +2,7 @@
 
 ## About the project
 
-Meine Box app is a refill management solution for farmers who want to sell their products with [Maschinenringe](https://www.maschinenring.de/) salesboxes. The app shows current real-time stock situation of the products that have been placed into the salesboxes and the farmer can get a notification when the stock levels are low. With having real-time data of current stock levels the farmer knows exactly when to ship refills to the salesbox.
+Meine Box app is a refill management solution for farmers who want to sell their products with [Maschinenringe](https://www.maschinenring.de/) salesboxes. The app shows current real-time stock situation of the products that have been placed into the salesboxes so the farmer knows exactly when to ship refills to the salesbox.
 
 ### Link to AWS Amplify app
 
